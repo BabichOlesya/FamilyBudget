@@ -74,7 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createTabBarController()  -> UITabBarController {
         let tabBarController = UITabBarController()
-        UITabBar.appearance().backgroundColor = .systemGray2
+        UITabBar.appearance().backgroundColor = .white
         tabBarController.viewControllers = [createIncomeViewController(), createBudgetViewController(), createExpenditureViewController()]
         return tabBarController
     }
