@@ -13,10 +13,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window.windowScene = windowScene
+        window.rootViewController = createTabBarController()
+        window.makeKeyAndVisible()
+        self.window = window
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -46,7 +50,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
+    
+    func createIncomeViewController() -> UINavigationController {
+        let incomeViewController = IncomeViewController()
+        incomeViewController.title = "Доходы"
+        incomeViewController.tabBarItem = UITabBarItem(title: "Доходы", image: UIImage(systemName: "plus.circle.fill"), tag: 0)
+        return UINavigationController(rootViewController: incomeViewController)
+    }
+    
+    func createBudgetViewController() -> UINavigationController {
+        let budgetViewController = BudgetViewController()
+        budgetViewController.title = "Бюджет"
+        budgetViewController.tabBarItem = UITabBarItem(title: "Бюджет", image: UIImage(systemName: "bag.circle.fill"), tag: 1)
+        return UINavigationController(rootViewController: budgetViewController)
+    }
+    
+    func createExpenditureViewController() -> UINavigationController {
+        let expenditureViewController = ExpenditureViewController()
+        expenditureViewController.title = "Расходы"
+        expenditureViewController.tabBarItem = UITabBarItem(title: "Расходы", image: UIImage(systemName: "minus.circle.fill"), tag: 2)
+        return UINavigationController(rootViewController: expenditureViewController)
+    }
+    
+    func createTabBarController()  -> UITabBarController {
+        let tabBarController = UITabBarController()
+        UITabBar.appearance().backgroundColor = .systemGray2
+        tabBarController.viewControllers = [createIncomeViewController(), createBudgetViewController(), createExpenditureViewController()]
+        return tabBarController
+    }
 
 }
 
