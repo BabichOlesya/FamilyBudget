@@ -13,6 +13,16 @@ class BudgetViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addConstraints()
+
+        let imageForSettings = UIImage(systemName: "circle.hexagonpath.fill")
+        let buttonSettings = UIBarButtonItem(image: imageForSettings , style: .done, target: self, action: #selector(clickButtonSettings))
+        navigationItem.leftBarButtonItem = buttonSettings
+       
+    }
+    
+    @objc func clickButtonSettings() {
+        let settingsViewController = SettingsViewController()
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
     lazy var diagramImageView: UIImageView = {
@@ -29,7 +39,7 @@ class BudgetViewController: UIViewController {
         status.text = "Статус выполнения бюджета"
         status.font = .systemFont(ofSize: 16, weight: .bold)
         status.textColor = .systemGray
-        status.frame = CGRect(x: 0, y: 0, width: 50, height: 40)
+        status.frame = CGRect(x: 0, y: 0, width: 50, height: 20)
         status.numberOfLines = 3
         status.textAlignment = .center
         status.translatesAutoresizingMaskIntoConstraints = false

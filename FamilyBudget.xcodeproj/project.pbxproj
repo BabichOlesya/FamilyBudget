@@ -16,6 +16,7 @@
 		C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */; };
 		C65F89C7286B9D4000E9EC9E /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */; };
 		C65F89C9286B9D5600E9EC9E /* ExpenditureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C8286B9D5600E9EC9E /* ExpenditureViewController.swift */; };
+		C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9202F286D0C9A00188083 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		C65F89C8286B9D5600E9EC9E /* ExpenditureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureViewController.swift; sourceTree = "<group>"; };
+		C6D9202F286D0C9A00188083 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */,
+				C6D9202F286D0C9A00188083 /* SettingsViewController.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			files = (
 				C610DE442869269400D2C524 /* ViewController.swift in Sources */,
 				C65F89C7286B9D4000E9EC9E /* IncomeViewController.swift in Sources */,
+				C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */,
 				C65F89C9286B9D5600E9EC9E /* ExpenditureViewController.swift in Sources */,
 				C610DE402869269400D2C524 /* AppDelegate.swift in Sources */,
 				C610DE422869269400D2C524 /* SceneDelegate.swift in Sources */,
