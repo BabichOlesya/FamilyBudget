@@ -16,6 +16,8 @@
 		C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */; };
 		C65F89C7286B9D4000E9EC9E /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */; };
 		C65F89C9286B9D5600E9EC9E /* ExpenditureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C8286B9D5600E9EC9E /* ExpenditureViewController.swift */; };
+		C6BD18EA2872345E00E8F052 /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18E92872345E00E8F052 /* BudgetManager.swift */; };
+		C6BD18EC28723C5400E8F052 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18EB28723C5400E8F052 /* General.swift */; };
 		C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9202F286D0C9A00188083 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		C65F89C8286B9D5600E9EC9E /* ExpenditureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureViewController.swift; sourceTree = "<group>"; };
+		C6BD18E92872345E00E8F052 /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
+		C6BD18EB28723C5400E8F052 /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		C6D9202F286D0C9A00188083 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +68,7 @@
 		C610DE3E2869269400D2C524 /* FamilyBudget */ = {
 			isa = PBXGroup;
 			children = (
+				C6BD18E82872341800E8F052 /* Model */,
 				C65F89C3286B9CF200E9EC9E /* Expenditure */,
 				C65F89C2286B9CDC00E9EC9E /* Income */,
 				C65F89C1286B9CB800E9EC9E /* Budget */,
@@ -74,6 +79,7 @@
 				C610DE482869269600D2C524 /* Assets.xcassets */,
 				C610DE4A2869269600D2C524 /* LaunchScreen.storyboard */,
 				C610DE4D2869269600D2C524 /* Info.plist */,
+				C6BD18EB28723C5400E8F052 /* General.swift */,
 			);
 			path = FamilyBudget;
 			sourceTree = "<group>";
@@ -101,6 +107,14 @@
 				C65F89C8286B9D5600E9EC9E /* ExpenditureViewController.swift */,
 			);
 			path = Expenditure;
+			sourceTree = "<group>";
+		};
+		C6BD18E82872341800E8F052 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6BD18E92872345E00E8F052 /* BudgetManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +191,9 @@
 				C610DE442869269400D2C524 /* ViewController.swift in Sources */,
 				C65F89C7286B9D4000E9EC9E /* IncomeViewController.swift in Sources */,
 				C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */,
+				C6BD18EC28723C5400E8F052 /* General.swift in Sources */,
 				C65F89C9286B9D5600E9EC9E /* ExpenditureViewController.swift in Sources */,
+				C6BD18EA2872345E00E8F052 /* BudgetManager.swift in Sources */,
 				C610DE402869269400D2C524 /* AppDelegate.swift in Sources */,
 				C610DE422869269400D2C524 /* SceneDelegate.swift in Sources */,
 				C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */,
@@ -329,6 +345,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G77WRV3QTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FamilyBudget/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -357,6 +374,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G77WRV3QTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FamilyBudget/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
