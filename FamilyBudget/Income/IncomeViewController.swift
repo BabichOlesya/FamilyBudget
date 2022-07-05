@@ -13,6 +13,7 @@ class IncomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addConstraints()
+        buttonPressed()
     }
 
     private lazy var addIncomeButton: UIButton = {
@@ -28,7 +29,28 @@ class IncomeViewController: UIViewController {
         return addIncomeButton
     }()
     
+    
+    var incomes: [AddIncome] = []
+    
+    func generateIncome(_ count: Count, _ itemIncome: Income, _ sum: Int, _ date: Date) -> AddIncome {
+        let newIncome = AddIncome(count: count, itemIncome: itemIncome, sum: sum, date: date)
+        incomes.append(newIncome)
+        
+        return newIncome
+        
+    //    var incomeArray = [Int]()
+    //    for i in 100...120 {
+    //        incomeArray.append(i)
+    //    }
+    }
+
+    var countSber = Count(name: "Сбер", currency: .rub, balance: 0)
+    
     @objc func buttonPressed() {
+        generateIncome(countSber, .salary, 100, Date.now)
+        print("Создан доход")
+        print(incomes)
+        
     }
     
     private func addConstraints() {

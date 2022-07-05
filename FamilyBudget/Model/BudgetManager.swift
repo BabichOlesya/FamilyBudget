@@ -48,16 +48,3 @@ struct Transfer {
     var get: Count
 }
 
-var mainCount = Count(name: "Сбер", currency: .rub, balance: 0)
-
-var newIncome = AddIncome(count: mainCount, itemIncome: .salary , sum: 100, date: Date.now)
-var newCost = AddCost(count: mainCount, itemCost: .alcohol, sum: 50, date: Date.now)
-
-func generateIncome() {
-    
-    var incomeArray = [Int]()
-    for i in 100...120 {
-        incomeArray.append(i)
-    }
-}
-

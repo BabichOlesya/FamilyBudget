@@ -28,8 +28,24 @@ class ExpenditureViewController: UIViewController {
         return addCostButton
     }()
     
-    @objc func buttonPressed() {
+    var costs: [AddCost] = []
+    
+    func generateCost(_ count: Count, _ itemCost: Cost, _ sum: Int, _ date: Date) -> AddCost {
+        let newCost = AddCost(count: count, itemCost: itemCost, sum: sum, date: date)
+        costs.append(newCost)
+        
+        return newCost
     }
+
+    var countSber = Count(name: "Сбер", currency: .rub, balance: 0)
+    
+    @objc func buttonPressed() {
+        generateCost(countSber, .alcohol, 100, Date.now)
+        print("Создан расход")
+        print(costs)
+        
+    }
+    
     
     private func addConstraints() {
         

@@ -79,7 +79,6 @@
 				C610DE482869269600D2C524 /* Assets.xcassets */,
 				C610DE4A2869269600D2C524 /* LaunchScreen.storyboard */,
 				C610DE4D2869269600D2C524 /* Info.plist */,
-				C6BD18EB28723C5400E8F052 /* General.swift */,
 			);
 			path = FamilyBudget;
 			sourceTree = "<group>";
@@ -112,6 +111,7 @@
 		C6BD18E82872341800E8F052 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C6BD18EB28723C5400E8F052 /* General.swift */,
 				C6BD18E92872345E00E8F052 /* BudgetManager.swift */,
 			);
 			path = Model;
