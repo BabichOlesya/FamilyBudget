@@ -7,44 +7,20 @@
 
 import UIKit
 
-enum Currency {
-    case rub
-    case eur, usd, gbp
+var incomes: [Income] = []
+
+func generateIncome(_ account: Account, _ itemIncome: TypesOfIncome, _ sum: Int, _ date: Date) -> Income {
+    let newIncome = Income(account: account, itemIncome: itemIncome, sum: sum, date: date)
+    incomes.append(newIncome)
+    
+    return newIncome
 }
 
-struct Count {
-    var name: String
-    var description: String?
-    var currency: Currency
-    var balance: Int
-}
+var costs: [Cost] = []
 
-enum Income {
-    case salary, social, rent, present, business, investments
+func generateCost(_ account: Account, _ itemCost: TypesOfCost, _ sum: Int, _ date: Date) -> Cost {
+    let newCost = Cost(account: account, itemCost: itemCost, sum: sum, date: date)
+    costs.append(newCost)
+    
+    return newCost
 }
-
-enum Cost {
-    case food, clothes, sport, health, education, vacation, auto, communal, rent, coffee, alcohol, entertainment
-}
-
-struct AddIncome {
-    var count: Count
-    var itemIncome: Income
-    var sum: Int
-    var date: Date
-    var comment: String?
-}
-
-struct AddCost {
-    var count: Count
-    var itemCost: Cost
-    var sum: Int
-    var date: Date
-    var comment: String?
-}
-
-struct Transfer {
-    var send: Count
-    var get: Count
-}
-
