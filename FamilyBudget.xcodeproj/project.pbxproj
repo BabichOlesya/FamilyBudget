@@ -20,7 +20,8 @@
 		C6BD18EE28763BB200E8F052 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18ED28763BB200E8F052 /* User.swift */; };
 		C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18EF28763E2200E8F052 /* Utilities.swift */; };
 		C6BD18F22876408800E8F052 /* BudgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18F12876408800E8F052 /* BudgetData.swift */; };
-		C6BD18F62876463700E8F052 /* IncomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6BD18F52876463700E8F052 /* IncomeView.xib */; };
+		C6BD18F62876463700E8F052 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6BD18F52876463700E8F052 /* BudgetView.xib */; };
+		C6BD18FC287745D700E8F052 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18FB287745D700E8F052 /* BudgetView.swift */; };
 		C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9202F286D0C9A00188083 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,8 @@
 		C6BD18ED28763BB200E8F052 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6BD18EF28763E2200E8F052 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C6BD18F12876408800E8F052 /* BudgetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetData.swift; sourceTree = "<group>"; };
-		C6BD18F52876463700E8F052 /* IncomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeView.xib; sourceTree = "<group>"; };
+		C6BD18F52876463700E8F052 /* BudgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetView.xib; sourceTree = "<group>"; };
+		C6BD18FB287745D700E8F052 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
 		C6D9202F286D0C9A00188083 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,10 +76,10 @@
 		C610DE3E2869269400D2C524 /* FamilyBudget */ = {
 			isa = PBXGroup;
 			children = (
+				C65F89C1286B9CB800E9EC9E /* Budget */,
 				C6BD18E82872341800E8F052 /* Model */,
 				C65F89C3286B9CF200E9EC9E /* Expenditure */,
 				C65F89C2286B9CDC00E9EC9E /* Income */,
-				C65F89C1286B9CB800E9EC9E /* Budget */,
 				C610DE3F2869269400D2C524 /* AppDelegate.swift */,
 				C610DE412869269400D2C524 /* SceneDelegate.swift */,
 				C610DE432869269400D2C524 /* ViewController.swift */,
@@ -92,8 +94,10 @@
 		C65F89C1286B9CB800E9EC9E /* Budget */ = {
 			isa = PBXGroup;
 			children = (
+				C6BD18F52876463700E8F052 /* BudgetView.xib */,
 				C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */,
 				C6D9202F286D0C9A00188083 /* SettingsViewController.swift */,
+				C6BD18FB287745D700E8F052 /* BudgetView.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -102,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */,
-				C6BD18F52876463700E8F052 /* IncomeView.xib */,
 			);
 			path = Income;
 			sourceTree = "<group>";
@@ -185,7 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C610DE4C2869269600D2C524 /* LaunchScreen.storyboard in Resources */,
-				C6BD18F62876463700E8F052 /* IncomeView.xib in Resources */,
+				C6BD18F62876463700E8F052 /* BudgetView.xib in Resources */,
 				C610DE492869269600D2C524 /* Assets.xcassets in Resources */,
 				C610DE472869269400D2C524 /* Main.storyboard in Resources */,
 			);
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C610DE442869269400D2C524 /* ViewController.swift in Sources */,
+				C6BD18FC287745D700E8F052 /* BudgetView.swift in Sources */,
 				C65F89C7286B9D4000E9EC9E /* IncomeViewController.swift in Sources */,
 				C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */,
 				C6BD18F22876408800E8F052 /* BudgetData.swift in Sources */,
