@@ -8,6 +8,8 @@
 import UIKit
 
 class IncomeViewController: UIViewController {
+    
+    var budgetManager = BudgetManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,8 @@ class IncomeViewController: UIViewController {
     var countSber = Account(name: "Сбер", currency: .rub, balance: 0)
     
     @objc func buttonPressed() {
-        generateIncome(countSber, .salary, 100, Date.now)
+        budgetManager.generateIncome(account: countSber, type: .salary, sum: 100, date: Date.now)
         print("Создан доход")
-        print(incomes)
-        
     }
     
     private func addConstraints() {

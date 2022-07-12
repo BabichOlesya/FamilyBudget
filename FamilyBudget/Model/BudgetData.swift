@@ -28,16 +28,16 @@ enum TypesOfCost {
 
 struct Income {
     var account: Account
-    var itemIncome: TypesOfIncome
-    var sum: Int
+    var type: TypesOfIncome
+    var sum: Double
     var date: Date
     var comment: String?
 }
 
 struct Cost {
     var account: Account
-    var itemCost: TypesOfCost
-    var sum: Int
+    var type: TypesOfCost
+    var sum: Double
     var date: Date
     var comment: String?
 }

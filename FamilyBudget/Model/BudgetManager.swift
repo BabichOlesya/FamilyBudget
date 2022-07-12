@@ -7,20 +7,40 @@
 
 import UIKit
 
-var incomes: [Income] = []
-
-func generateIncome(_ account: Account, _ itemIncome: TypesOfIncome, _ sum: Int, _ date: Date) -> Income {
-    let newIncome = Income(account: account, itemIncome: itemIncome, sum: sum, date: date)
-    incomes.append(newIncome)
+class BudgetManager {
     
-    return newIncome
-}
-
-var costs: [Cost] = []
-
-func generateCost(_ account: Account, _ itemCost: TypesOfCost, _ sum: Int, _ date: Date) -> Cost {
-    let newCost = Cost(account: account, itemCost: itemCost, sum: sum, date: date)
-    costs.append(newCost)
+    private var incomes: [Income] = []
+    private var costs: [Cost] = []
     
-    return newCost
+    func generateIncome(account: Account, type: TypesOfIncome, sum: Double, date: Date) {
+        let newIncome = Income(account: account, type: type, sum: sum, date: date)
+        incomes.append(newIncome)
+    }
+    
+    func generateCost(account: Account, type: TypesOfCost, sum: Double, date: Date) {
+        let newCost = Cost(account: account, type: type, sum: sum, date: date)
+        costs.append(newCost)
+    }
+    
+    var totalIncomes: Double {
+        var sumIncomes: Double = 0
+        for income in incomes {
+            sumIncomes += income.sum
+        }
+        return sumIncomes
+    }
+    
+    var totalCosts: Double {
+        var sumCosts: Double = 0
+        for cost in costs {
+            sumCosts += cost.sum
+        }
+        return sumCosts
+    }
+    
+    var balance: Double {
+        totalIncomes - totalCosts
+    }
+
+    
 }

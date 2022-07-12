@@ -116,7 +116,7 @@ class BudgetViewController: UIViewController {
         return balanceAmount
     }()
     
-    private lazy var amountIncome: UILabel = {
+    lazy var amountIncome: UILabel = {
         let amountIncome = UILabel()
         amountIncome.font = .systemFont(ofSize: 18, weight: .regular)
         amountIncome.textColor = .systemGray
@@ -128,6 +128,12 @@ class BudgetViewController: UIViewController {
         amountIncome.translatesAutoresizingMaskIntoConstraints = false
         return amountIncome
     }()
+    
+    public var textTitle: String? {
+        didSet {
+            amountIncome.text = textTitle
+        }
+    }
     
     private lazy var amountExpenses: UILabel = {
         let amountExpenses = UILabel()
@@ -201,5 +207,4 @@ class BudgetViewController: UIViewController {
 
         NSLayoutConstraint.activate(constraints)
     }
-
 }

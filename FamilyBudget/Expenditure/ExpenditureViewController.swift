@@ -8,13 +8,15 @@
 import UIKit
 
 class ExpenditureViewController: UIViewController {
+    
+    var budgetManager = BudgetManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         addConstraints()
     }
-    
+
     private lazy var addCostButton: UIButton = {
         let addCostButton = UIButton()
         addCostButton.setTitle("Добавить", for: .normal)
@@ -32,9 +34,8 @@ class ExpenditureViewController: UIViewController {
     var countSber = Account(name: "Сбер", currency: .rub, balance: 0)
     
     @objc func buttonPressed() {
-        generateCost(countSber, .alcohol, 100, Date.now)
+        budgetManager.generateCost(account: countSber, type: .alcohol, sum: 100, date: Date.now)
         print("Создан расход")
-        print(costs)
         
     }
     
