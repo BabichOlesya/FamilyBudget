@@ -1,19 +1,24 @@
 //
-//  ExpenditureViewController.swift
+//  CostViewController.swift
 //  FamilyBudget
 //
-//  Created by Олеся Бабич on 28.6.22..
+//  Created by Олеся Бабич on 18.7.22..
 //
 
 import UIKit
 
-class ExpenditureViewController: UIViewController {
-    
+class CostViewController: UIViewController {
+
     var budgetManager = BudgetManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        self.title = "Расходы"
+        var tabBarItem = UITabBarItem()
+        self.tabBarItem = UITabBarItem(title: "Расходы", image: UIImage(systemName: "minus.circle.fill"), tag: 2)
+        
         addConstraints()
     }
 

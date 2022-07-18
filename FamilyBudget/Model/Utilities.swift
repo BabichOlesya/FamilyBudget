@@ -10,5 +10,3 @@ import Foundation
 enum Sex {
     case male, female, undefined
 }
-
-var shortMonthSymbols: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]

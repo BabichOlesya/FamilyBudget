@@ -12,7 +12,5 @@ struct User {
     var email: String
     var age: Int
     var sex: Sex
-    var costAccounting: Bool
-    var incomeAccounting: Bool
 }
 

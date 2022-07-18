@@ -8,10 +8,20 @@
 import UIKit
 
 class BudgetViewController: UIViewController {
+    
+//    let bud = BudgetView()
+//    let budMan = BudgetManager()
+//    self.bud.textTitle = self.budMan.totalIncomes
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        self.navigationItem.title = "Бюджет"
+        var tabBarItem = UITabBarItem()
+        self.tabBarItem = UITabBarItem(title: "Бюджет", image: UIImage(systemName: "bag.circle.fill"), tag: 1)
+        
         addConstraints()
 
         let imageForSettings = UIImage(systemName: "circle.hexagonpath.fill")
@@ -128,12 +138,6 @@ class BudgetViewController: UIViewController {
         amountIncome.translatesAutoresizingMaskIntoConstraints = false
         return amountIncome
     }()
-    
-    public var textTitle: String? {
-        didSet {
-            amountIncome.text = textTitle
-        }
-    }
     
     private lazy var amountExpenses: UILabel = {
         let amountExpenses = UILabel()

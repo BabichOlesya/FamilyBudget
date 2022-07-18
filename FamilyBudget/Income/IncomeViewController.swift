@@ -14,6 +14,11 @@ class IncomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        self.title = "Доходы"
+        var tabBarItem = UITabBarItem()
+        self.tabBarItem = UITabBarItem(title: "Доходы", image: UIImage(systemName: "plus.circle.fill"), tag: 0)
+        
         addConstraints()
     }
 

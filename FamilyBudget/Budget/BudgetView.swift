@@ -7,8 +7,13 @@
 
 import UIKit
 
-public class BudgetView: UIView {
-
-    var viewTitle = BudgetViewController()
-    viewTitle.textTitle = "Yt"
-}
+//public class BudgetView: UIView {
+//    
+//    let budVC = BudgetViewController()
+//    
+//    public var textTitle: String? {
+//        didSet {
+//            budVC.amountIncome.text = textTitle
+//        }
+//    }
+//}
