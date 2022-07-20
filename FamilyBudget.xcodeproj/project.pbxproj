@@ -21,8 +21,9 @@
 		C6BD18F22876408800E8F052 /* BudgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18F12876408800E8F052 /* BudgetData.swift */; };
 		C6BD18FE287CD55900E8F052 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18FD287CD55900E8F052 /* BudgetView.swift */; };
 		C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9202F286D0C9A00188083 /* SettingsViewController.swift */; };
-		C6DC1EDC2886093600027BDD /* CostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EDB2886093600027BDD /* CostViewController.swift */; };
+		C6DC1EDC2886093600027BDD /* CostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EDB2886093600027BDD /* CostsViewController.swift */; };
 		C6DC1EDE28860D9800027BDD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EDD28860D9800027BDD /* Settings.swift */; };
+		C6DC1EE42888A7A300027BDD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +43,9 @@
 		C6BD18F12876408800E8F052 /* BudgetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetData.swift; sourceTree = "<group>"; };
 		C6BD18FD287CD55900E8F052 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
 		C6D9202F286D0C9A00188083 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		C6DC1EDB2886093600027BDD /* CostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostViewController.swift; sourceTree = "<group>"; };
+		C6DC1EDB2886093600027BDD /* CostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewController.swift; sourceTree = "<group>"; };
 		C6DC1EDD28860D9800027BDD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,37 +78,14 @@
 		C610DE3E2869269400D2C524 /* FamilyBudget */ = {
 			isa = PBXGroup;
 			children = (
-				C6DC1EDA2886091200027BDD /* Cost */,
-				C65F89C1286B9CB800E9EC9E /* Budget */,
-				C6BD18E82872341800E8F052 /* Model */,
-				C65F89C2286B9CDC00E9EC9E /* Income */,
-				C610DE3F2869269400D2C524 /* AppDelegate.swift */,
-				C610DE412869269400D2C524 /* SceneDelegate.swift */,
-				C610DE432869269400D2C524 /* ViewController.swift */,
-				C610DE452869269400D2C524 /* Main.storyboard */,
-				C610DE482869269600D2C524 /* Assets.xcassets */,
-				C610DE4A2869269600D2C524 /* LaunchScreen.storyboard */,
 				C610DE4D2869269600D2C524 /* Info.plist */,
+				C6DC1EDF2888A59200027BDD /* Views */,
+				C6DC1EE02888A5B500027BDD /* Controllers */,
+				C6BD18E82872341800E8F052 /* Model */,
+				C6DC1EE12888A5CB00027BDD /* Main */,
+				C6DC1EE22888A68F00027BDD /* Resources */,
 			);
 			path = FamilyBudget;
-			sourceTree = "<group>";
-		};
-		C65F89C1286B9CB800E9EC9E /* Budget */ = {
-			isa = PBXGroup;
-			children = (
-				C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */,
-				C6D9202F286D0C9A00188083 /* SettingsViewController.swift */,
-				C6BD18FD287CD55900E8F052 /* BudgetView.swift */,
-			);
-			path = Budget;
-			sourceTree = "<group>";
-		};
-		C65F89C2286B9CDC00E9EC9E /* Income */ = {
-			isa = PBXGroup;
-			children = (
-				C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */,
-			);
-			path = Income;
 			sourceTree = "<group>";
 		};
 		C6BD18E82872341800E8F052 /* Model */ = {
@@ -121,12 +100,44 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C6DC1EDA2886091200027BDD /* Cost */ = {
+		C6DC1EDF2888A59200027BDD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C6DC1EDB2886093600027BDD /* CostViewController.swift */,
+				C6BD18FD287CD55900E8F052 /* BudgetView.swift */,
 			);
-			path = Cost;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C6DC1EE02888A5B500027BDD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */,
+				C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */,
+				C6DC1EDB2886093600027BDD /* CostsViewController.swift */,
+				C6D9202F286D0C9A00188083 /* SettingsViewController.swift */,
+				C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C6DC1EE12888A5CB00027BDD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C610DE3F2869269400D2C524 /* AppDelegate.swift */,
+				C610DE412869269400D2C524 /* SceneDelegate.swift */,
+				C610DE432869269400D2C524 /* ViewController.swift */,
+				C610DE452869269400D2C524 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C6DC1EE22888A68F00027BDD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C610DE482869269600D2C524 /* Assets.xcassets */,
+				C610DE4A2869269600D2C524 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +219,9 @@
 				C6BD18F22876408800E8F052 /* BudgetData.swift in Sources */,
 				C6BD18EA2872345E00E8F052 /* BudgetManager.swift in Sources */,
 				C610DE402869269400D2C524 /* AppDelegate.swift in Sources */,
-				C6DC1EDC2886093600027BDD /* CostViewController.swift in Sources */,
+				C6DC1EDC2886093600027BDD /* CostsViewController.swift in Sources */,
 				C610DE422869269400D2C524 /* SceneDelegate.swift in Sources */,
+				C6DC1EE42888A7A300027BDD /* MainTabBarController.swift in Sources */,
 				C6BD18EE28763BB200E8F052 /* User.swift in Sources */,
 				C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */,
 				C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */,

@@ -17,10 +17,7 @@ class BudgetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        self.navigationItem.title = "Бюджет"
-        var tabBarItem = UITabBarItem()
-        self.tabBarItem = UITabBarItem(title: "Бюджет", image: UIImage(systemName: "bag.circle.fill"), tag: 1)
+        title = "Бюджет"
         
         addConstraints()
 

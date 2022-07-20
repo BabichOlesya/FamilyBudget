@@ -7,17 +7,14 @@
 
 import UIKit
 
-class CostViewController: UIViewController {
+class CostsViewController: UIViewController {
 
     var budgetManager = BudgetManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        self.title = "Расходы"
-        var tabBarItem = UITabBarItem()
-        self.tabBarItem = UITabBarItem(title: "Расходы", image: UIImage(systemName: "minus.circle.fill"), tag: 2)
+        title = "Расходы"
         
         addConstraints()
     }
