@@ -13,22 +13,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window.windowScene = windowScene
-        
-        let incomeViewController = IncomeViewController()
-        let budgetViewController = BudgetViewController()
-        let costsViewController = CostsViewController()
-        
-        let tabBarController = MainTabBarController()
-        
-        tabBarController.setViewControllers([incomeViewController, budgetViewController, costsViewController], animated: false)
-        let navigationController = UINavigationController(rootViewController: tabBarController)
-        window.rootViewController = navigationController
-        
-        window.makeKeyAndVisible()
-        self.window = window
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        let window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//        window.windowScene = windowScene
+//
+//        let incomeViewController = IncomeViewController()
+//        let budgetViewController = BudgetViewController()
+//        let costsViewController = CostsViewController()
+//
+//        let tabBarController = MainTabBarController()
+//
+//        tabBarController.setViewControllers([incomeViewController, budgetViewController, costsViewController], animated: false)
+//        let navigationController = UINavigationController(rootViewController: tabBarController)
+//        window.rootViewController = navigationController
+//
+//        window.makeKeyAndVisible()
+//        self.window = window
         
     }
 
