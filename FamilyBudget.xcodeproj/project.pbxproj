@@ -15,6 +15,8 @@
 		C610DE4C2869269600D2C524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C610DE4A2869269600D2C524 /* LaunchScreen.storyboard */; };
 		C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */; };
 		C65F89C7286B9D4000E9EC9E /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */; };
+		C6603B94288F572400192518 /* TotalsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6603B93288F572400192518 /* TotalsView.xib */; };
+		C6603B962891DC7B00192518 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6603B952891DC7B00192518 /* TotalsView.swift */; };
 		C6BD18EA2872345E00E8F052 /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18E92872345E00E8F052 /* BudgetManager.swift */; };
 		C6BD18EE28763BB200E8F052 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18ED28763BB200E8F052 /* User.swift */; };
 		C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18EF28763E2200E8F052 /* Utilities.swift */; };
@@ -37,6 +39,8 @@
 		C610DE4D2869269600D2C524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
+		C6603B93288F572400192518 /* TotalsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalsView.xib; sourceTree = "<group>"; };
+		C6603B952891DC7B00192518 /* TotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
 		C6BD18E92872345E00E8F052 /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
 		C6BD18ED28763BB200E8F052 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6BD18EF28763E2200E8F052 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				C6BD18FD287CD55900E8F052 /* BudgetView.swift */,
+				C6603B93288F572400192518 /* TotalsView.xib */,
+				C6603B952891DC7B00192518 /* TotalsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C610DE4C2869269600D2C524 /* LaunchScreen.storyboard in Resources */,
+				C6603B94288F572400192518 /* TotalsView.xib in Resources */,
 				C610DE492869269600D2C524 /* Assets.xcassets in Resources */,
 				C610DE472869269400D2C524 /* Main.storyboard in Resources */,
 			);
@@ -211,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6603B962891DC7B00192518 /* TotalsView.swift in Sources */,
 				C610DE442869269400D2C524 /* ViewController.swift in Sources */,
 				C6BD18FE287CD55900E8F052 /* BudgetView.swift in Sources */,
 				C6DC1EDE28860D9800027BDD /* Settings.swift in Sources */,

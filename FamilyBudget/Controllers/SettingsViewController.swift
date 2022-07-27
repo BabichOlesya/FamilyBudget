@@ -63,14 +63,14 @@ class SettingsViewController: UIViewController {
         return currancyButton
     }()
     
-    private var costClider: UISlider {
-        let costClider = UISlider()
-        return costClider
+    private var costSwitch: UISwitch {
+        let costSwitch = UISwitch()
+        return costSwitch
     }
     
-    private var incomeClider: UISlider {
-        let incomeClider = UISlider()
-        return incomeClider
+    private var incomeSwitch: UISwitch {
+        let incomeSwitch = UISwitch()
+        return incomeSwitch
     }
     
     private lazy var labelStackView: UIStackView = {
@@ -99,8 +99,8 @@ class SettingsViewController: UIViewController {
         labelStackView.addArrangedSubview(incomeAccounting)
         labelStackView.addArrangedSubview(costAccounting)
         amountStackView.addArrangedSubview(currancyButton)
-        amountStackView.addArrangedSubview(incomeClider)
-        amountStackView.addArrangedSubview(costClider)
+        amountStackView.addArrangedSubview(incomeSwitch)
+        amountStackView.addArrangedSubview(incomeSwitch)
 
         var constraints = [NSLayoutConstraint]()
         

@@ -74,79 +74,112 @@ class BudgetViewController: UIViewController {
         return statusStackView
     }()
     
-    private lazy var balance: UILabel = {
-        let balance = UILabel()
-        balance.text = "Перерасход/остаток бюджета"
-        balance.font = .systemFont(ofSize: 18, weight: .regular)
-        balance.textColor = .systemGray
-        balance.numberOfLines = 2
-        balance.layer.borderWidth = 0.5
-        balance.layer.cornerRadius = 12.0
-        balance.translatesAutoresizingMaskIntoConstraints = false
+//    private lazy var balance: UILabel = {
+//        let balance = UILabel()
+//        balance.text = "Перерасход/остаток бюджета"
+//        balance.font = .systemFont(ofSize: 18, weight: .regular)
+//        balance.textColor = .systemGray
+//        balance.numberOfLines = 2
+//        balance.layer.borderWidth = 0.5
+//        balance.layer.cornerRadius = 12.0
+//        balance.translatesAutoresizingMaskIntoConstraints = false
+//        return balance
+//    }()
+    
+//    private lazy var totalIncome: UILabel = {
+//        let totalIncome = UILabel()
+//        totalIncome.text = "Всего доходов"
+//        totalIncome.font = .systemFont(ofSize: 18, weight: .regular)
+//        totalIncome.textColor = .systemGray
+//        totalIncome.numberOfLines = 2
+//        totalIncome.layer.borderWidth = 0.5
+//        totalIncome.layer.cornerRadius = 12.0
+//        totalIncome.translatesAutoresizingMaskIntoConstraints = false
+//        return totalIncome
+//    }()
+//
+//    private lazy var totalExpenses: UILabel = {
+//        let totalExpenses = UILabel()
+//        totalExpenses.text = "Всего расходов"
+//        totalExpenses.font = .systemFont(ofSize: 18, weight: .regular)
+//        totalExpenses.textColor = .systemGray
+//        totalExpenses.numberOfLines = 2
+//        totalExpenses.layer.borderWidth = 0.5
+//        totalExpenses.layer.cornerRadius = 12.0
+//        totalExpenses.translatesAutoresizingMaskIntoConstraints = false
+//        return totalExpenses
+//    }()
+//
+//    private lazy var balanceAmount: UILabel = {
+//        let balanceAmount = UILabel()
+//        balanceAmount.font = .systemFont(ofSize: 18, weight: .regular)
+//        balanceAmount.textColor = .systemGray
+//        balanceAmount.layer.borderWidth = 0.5
+//        balanceAmount.layer.cornerRadius = 12.0
+//        balanceAmount.backgroundColor = .systemGray6
+//        balanceAmount.textAlignment = .right
+//        balanceAmount.text = "0"
+//        balanceAmount.translatesAutoresizingMaskIntoConstraints = false
+//        return balanceAmount
+//    }()
+    
+//    lazy var amountIncome: UILabel = {
+//        let amountIncome = UILabel()
+//        amountIncome.font = .systemFont(ofSize: 18, weight: .regular)
+//        amountIncome.textColor = .systemGray
+//        amountIncome.layer.borderWidth = 0.5
+//        amountIncome.layer.cornerRadius = 12.0
+//        amountIncome.backgroundColor = .systemGray6
+//        amountIncome.textAlignment = .right
+//        amountIncome.text = "0"
+//        amountIncome.translatesAutoresizingMaskIntoConstraints = false
+//        return amountIncome
+//    }()
+//
+//    private lazy var amountExpenses: UILabel = {
+//        let amountExpenses = UILabel()
+//        amountExpenses.font = .systemFont(ofSize: 18, weight: .regular)
+//        amountExpenses.textColor = .systemGray
+//        amountExpenses.layer.borderWidth = 0.5
+//        amountExpenses.layer.cornerRadius = 12.0
+//        amountExpenses.backgroundColor = .systemGray6
+//        amountExpenses.textAlignment = .right
+//        amountExpenses.text = "0"
+//        amountExpenses.translatesAutoresizingMaskIntoConstraints = false
+//        return amountExpenses
+//    }()
+//
+    private lazy var balance: TotalsView = {
+        let balance = TotalsView()
+//        balance.labelTotal.text = "Перерасход/остаток бюджета"
+//        balance.labelTotal.layer.borderWidth = 0.5
+//        balance.labelTotal.layer.cornerRadius = 12.0
+//        balance.labelAmount.layer.borderWidth = 0.5
+//        balance.labelAmount.layer.cornerRadius = 12.0
+//        balance.labelAmount.text = "0"
         return balance
     }()
     
-    private lazy var totalIncome: UILabel = {
-        let totalIncome = UILabel()
-        totalIncome.text = "Всего доходов"
-        totalIncome.font = .systemFont(ofSize: 18, weight: .regular)
-        totalIncome.textColor = .systemGray
-        totalIncome.numberOfLines = 2
-        totalIncome.layer.borderWidth = 0.5
-        totalIncome.layer.cornerRadius = 12.0
-        totalIncome.translatesAutoresizingMaskIntoConstraints = false
-        return totalIncome
+    private lazy var income: TotalsView = {
+        let income = TotalsView()
+//        balance.labelTotal.text = "Всего доходов"
+//        balance.labelTotal.layer.borderWidth = 0.5
+//        balance.labelTotal.layer.cornerRadius = 12.0
+//        balance.labelAmount.layer.borderWidth = 0.5
+//        balance.labelAmount.layer.cornerRadius = 12.0
+//        balance.labelAmount.text = "0"
+        return income
     }()
     
-    private lazy var totalExpenses: UILabel = {
-        let totalExpenses = UILabel()
-        totalExpenses.text = "Всего расходов"
-        totalExpenses.font = .systemFont(ofSize: 18, weight: .regular)
-        totalExpenses.textColor = .systemGray
-        totalExpenses.numberOfLines = 2
-        totalExpenses.layer.borderWidth = 0.5
-        totalExpenses.layer.cornerRadius = 12.0
-        totalExpenses.translatesAutoresizingMaskIntoConstraints = false
-        return totalExpenses
-    }()
-    
-    private lazy var balanceAmount: UILabel = {
-        let balanceAmount = UILabel()
-        balanceAmount.font = .systemFont(ofSize: 18, weight: .regular)
-        balanceAmount.textColor = .systemGray
-        balanceAmount.layer.borderWidth = 0.5
-        balanceAmount.layer.cornerRadius = 12.0
-        balanceAmount.backgroundColor = .systemGray6
-        balanceAmount.textAlignment = .right
-        balanceAmount.text = "0"
-        balanceAmount.translatesAutoresizingMaskIntoConstraints = false
-        return balanceAmount
-    }()
-    
-    lazy var amountIncome: UILabel = {
-        let amountIncome = UILabel()
-        amountIncome.font = .systemFont(ofSize: 18, weight: .regular)
-        amountIncome.textColor = .systemGray
-        amountIncome.layer.borderWidth = 0.5
-        amountIncome.layer.cornerRadius = 12.0
-        amountIncome.backgroundColor = .systemGray6
-        amountIncome.textAlignment = .right
-        amountIncome.text = "0"
-        amountIncome.translatesAutoresizingMaskIntoConstraints = false
-        return amountIncome
-    }()
-    
-    private lazy var amountExpenses: UILabel = {
-        let amountExpenses = UILabel()
-        amountExpenses.font = .systemFont(ofSize: 18, weight: .regular)
-        amountExpenses.textColor = .systemGray
-        amountExpenses.layer.borderWidth = 0.5
-        amountExpenses.layer.cornerRadius = 12.0
-        amountExpenses.backgroundColor = .systemGray6
-        amountExpenses.textAlignment = .right
-        amountExpenses.text = "0"
-        amountExpenses.translatesAutoresizingMaskIntoConstraints = false
-        return amountExpenses
+    private lazy var cost: TotalsView = {
+        let cost = TotalsView()
+//        balance.labelTotal.text = "Всего доходов"
+//        balance.labelTotal.layer.borderWidth = 0.5
+//        balance.labelTotal.layer.cornerRadius = 12.0
+//        balance.labelAmount.layer.borderWidth = 0.5
+//        balance.labelAmount.layer.cornerRadius = 12.0
+//        balance.labelAmount.text = "0"
+        return cost
     }()
     
     private lazy var labelStackView: UIStackView = {
@@ -157,15 +190,15 @@ class BudgetViewController: UIViewController {
         labelstackView.translatesAutoresizingMaskIntoConstraints = false
         return labelstackView
     }()
-    
-    private lazy var amountStackView: UIStackView = {
-        let amountStackView = UIStackView()
-        amountStackView.axis = .vertical
-        amountStackView.distribution = .fillEqually
-        amountStackView.spacing = 30
-        amountStackView.translatesAutoresizingMaskIntoConstraints = false
-        return amountStackView
-    }()
+//
+//    private lazy var amountStackView: UIStackView = {
+//        let amountStackView = UIStackView()
+//        amountStackView.axis = .vertical
+//        amountStackView.distribution = .fillEqually
+//        amountStackView.spacing = 30
+//        amountStackView.translatesAutoresizingMaskIntoConstraints = false
+//        return amountStackView
+//    }()
     
 
     private func addConstraints() {
@@ -173,15 +206,15 @@ class BudgetViewController: UIViewController {
         view.addSubview(diagramImageView)
         view.addSubview(statusStackView)
         view.addSubview(labelStackView)
-        view.addSubview(amountStackView)
+//        view.addSubview(amountStackView)
         statusStackView.addArrangedSubview(monthButton)
         statusStackView.addArrangedSubview(status)
         labelStackView.addArrangedSubview(balance)
-        labelStackView.addArrangedSubview(totalIncome)
-        labelStackView.addArrangedSubview(totalExpenses)
-        amountStackView.addArrangedSubview(balanceAmount)
-        amountStackView.addArrangedSubview(amountIncome)
-        amountStackView.addArrangedSubview(amountExpenses)
+//        labelStackView.addArrangedSubview(totalIncome)
+//        labelStackView.addArrangedSubview(totalExpenses)
+//        amountStackView.addArrangedSubview(balanceAmount)
+//        amountStackView.addArrangedSubview(amountIncome)
+//        amountStackView.addArrangedSubview(amountExpenses)
 
         var constraints = [NSLayoutConstraint]()
         
@@ -197,13 +230,13 @@ class BudgetViewController: UIViewController {
         
         constraints.append(labelStackView.topAnchor.constraint(equalTo: diagramImageView.bottomAnchor, constant: 50))
         constraints.append(labelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20))
-        constraints.append(labelStackView.heightAnchor.constraint(equalToConstant: 240))
-        constraints.append(labelStackView.widthAnchor.constraint(equalToConstant: 240))
+//        constraints.append(labelStackView.heightAnchor.constraint(equalToConstant: 240))
+//        constraints.append(labelStackView.widthAnchor.constraint(equalToConstant: 240))
 
-        constraints.append(amountStackView.topAnchor.constraint(equalTo: labelStackView.topAnchor))
-        constraints.append(amountStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20))
-        constraints.append(amountStackView.heightAnchor.constraint(equalToConstant: 240))
-        constraints.append(amountStackView.widthAnchor.constraint(equalToConstant: 120))
+//        constraints.append(amountStackView.topAnchor.constraint(equalTo: labelStackView.topAnchor))
+//        constraints.append(amountStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20))
+//        constraints.append(amountStackView.heightAnchor.constraint(equalToConstant: 240))
+//        constraints.append(amountStackView.widthAnchor.constraint(equalToConstant: 120))
 
 
         NSLayoutConstraint.activate(constraints)
