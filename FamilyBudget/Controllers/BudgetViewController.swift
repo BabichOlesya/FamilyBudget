@@ -19,6 +19,8 @@ class BudgetViewController: UIViewController {
         view.backgroundColor = .white
         title = "Бюджет"
         
+       
+        
         addConstraints()
 
         let imageForSettings = UIImage(systemName: "circle.hexagonpath.fill")
@@ -149,19 +151,21 @@ class BudgetViewController: UIViewController {
 //        return amountExpenses
 //    }()
 //
-    private lazy var balance: TotalsView = {
+    private var balance: UIView = {
         let balance = TotalsView()
+//        balance.frame = CGRect(x: 20, y: 400, width: 0, height: 0)
 //        balance.labelTotal.text = "Перерасход/остаток бюджета"
-//        balance.labelTotal.layer.borderWidth = 0.5
-//        balance.labelTotal.layer.cornerRadius = 12.0
+//        balance.layer.borderWidth = 0.5
+//        balance.layer.cornerRadius = 12.0
 //        balance.labelAmount.layer.borderWidth = 0.5
 //        balance.labelAmount.layer.cornerRadius = 12.0
 //        balance.labelAmount.text = "0"
         return balance
     }()
-    
-    private lazy var income: TotalsView = {
+
+    private var income: TotalsView = {
         let income = TotalsView()
+//        income.frame = CGRect(x: 20, y: 480, width: 0, height: 0)
 //        balance.labelTotal.text = "Всего доходов"
 //        balance.labelTotal.layer.borderWidth = 0.5
 //        balance.labelTotal.layer.cornerRadius = 12.0
@@ -170,9 +174,10 @@ class BudgetViewController: UIViewController {
 //        balance.labelAmount.text = "0"
         return income
     }()
-    
-    private lazy var cost: TotalsView = {
+
+    private var cost: TotalsView = {
         let cost = TotalsView()
+//        cost.frame = CGRect(x: 20, y: 560, width: 0, height: 0)
 //        balance.labelTotal.text = "Всего доходов"
 //        balance.labelTotal.layer.borderWidth = 0.5
 //        balance.labelTotal.layer.cornerRadius = 12.0
@@ -181,7 +186,7 @@ class BudgetViewController: UIViewController {
 //        balance.labelAmount.text = "0"
         return cost
     }()
-    
+
     private lazy var labelStackView: UIStackView = {
         let labelstackView = UIStackView()
         labelstackView.axis = .vertical
@@ -202,14 +207,22 @@ class BudgetViewController: UIViewController {
     
 
     private func addConstraints() {
+
+
         
         view.addSubview(diagramImageView)
         view.addSubview(statusStackView)
         view.addSubview(labelStackView)
+        
+//        view.addSubview(labelStackView)
 //        view.addSubview(amountStackView)
+        
+        
         statusStackView.addArrangedSubview(monthButton)
         statusStackView.addArrangedSubview(status)
         labelStackView.addArrangedSubview(balance)
+        labelStackView.addArrangedSubview(income)
+        labelStackView.addArrangedSubview(cost)
 //        labelStackView.addArrangedSubview(totalIncome)
 //        labelStackView.addArrangedSubview(totalExpenses)
 //        amountStackView.addArrangedSubview(balanceAmount)
@@ -230,6 +243,7 @@ class BudgetViewController: UIViewController {
         
         constraints.append(labelStackView.topAnchor.constraint(equalTo: diagramImageView.bottomAnchor, constant: 50))
         constraints.append(labelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20))
+        constraints.append(labelStackView.heightAnchor.constraint(equalToConstant: 240))
 //        constraints.append(labelStackView.heightAnchor.constraint(equalToConstant: 240))
 //        constraints.append(labelStackView.widthAnchor.constraint(equalToConstant: 240))
 
