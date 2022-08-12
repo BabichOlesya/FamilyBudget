@@ -13,20 +13,31 @@ class BudgetViewController: UIViewController {
 //    let budMan = BudgetManager()
 //    self.bud.textTitle = self.budMan.totalIncomes
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        title = "Бюджет"
-        
-       
-        
-        addConstraints()
+  // MARK : Private API
+  private var balance = TotalsView()
+  private var income = TotalsView()
+  private var cost =  TotalsView()
+  
+  // TO-DO
+  private enum Constant {
+    static let diagramImageViewWidth: CGFloat = 180.0
+  }
 
-        let imageForSettings = UIImage(systemName: "circle.hexagonpath.fill")
-        let buttonSettings = UIBarButtonItem(image: imageForSettings , style: .done, target: self, action: #selector(clickButtonSettings))
-        navigationItem.leftBarButtonItem = buttonSettings
-       
+  // MARK : Lifecycle
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
+    title = "Бюджет"
+    
+    view.addSubview(diagramImageView)
+    view.addSubview(statusStackView)
+    view.addSubview(labelStackView)
+    addConstraints()
+
+    let imageForSettings = UIImage(systemName: "circle.hexagonpath.fill")
+    let buttonSettings = UIBarButtonItem(image: imageForSettings , style: .done, target: self, action: #selector(clickButtonSettings))
+    navigationItem.leftBarButtonItem = buttonSettings
     }
     
     @objc func clickButtonSettings() {
@@ -75,118 +86,7 @@ class BudgetViewController: UIViewController {
         statusStackView.translatesAutoresizingMaskIntoConstraints = false
         return statusStackView
     }()
-    
-//    private lazy var balance: UILabel = {
-//        let balance = UILabel()
-//        balance.text = "Перерасход/остаток бюджета"
-//        balance.font = .systemFont(ofSize: 18, weight: .regular)
-//        balance.textColor = .systemGray
-//        balance.numberOfLines = 2
-//        balance.layer.borderWidth = 0.5
-//        balance.layer.cornerRadius = 12.0
-//        balance.translatesAutoresizingMaskIntoConstraints = false
-//        return balance
-//    }()
-    
-//    private lazy var totalIncome: UILabel = {
-//        let totalIncome = UILabel()
-//        totalIncome.text = "Всего доходов"
-//        totalIncome.font = .systemFont(ofSize: 18, weight: .regular)
-//        totalIncome.textColor = .systemGray
-//        totalIncome.numberOfLines = 2
-//        totalIncome.layer.borderWidth = 0.5
-//        totalIncome.layer.cornerRadius = 12.0
-//        totalIncome.translatesAutoresizingMaskIntoConstraints = false
-//        return totalIncome
-//    }()
-//
-//    private lazy var totalExpenses: UILabel = {
-//        let totalExpenses = UILabel()
-//        totalExpenses.text = "Всего расходов"
-//        totalExpenses.font = .systemFont(ofSize: 18, weight: .regular)
-//        totalExpenses.textColor = .systemGray
-//        totalExpenses.numberOfLines = 2
-//        totalExpenses.layer.borderWidth = 0.5
-//        totalExpenses.layer.cornerRadius = 12.0
-//        totalExpenses.translatesAutoresizingMaskIntoConstraints = false
-//        return totalExpenses
-//    }()
-//
-//    private lazy var balanceAmount: UILabel = {
-//        let balanceAmount = UILabel()
-//        balanceAmount.font = .systemFont(ofSize: 18, weight: .regular)
-//        balanceAmount.textColor = .systemGray
-//        balanceAmount.layer.borderWidth = 0.5
-//        balanceAmount.layer.cornerRadius = 12.0
-//        balanceAmount.backgroundColor = .systemGray6
-//        balanceAmount.textAlignment = .right
-//        balanceAmount.text = "0"
-//        balanceAmount.translatesAutoresizingMaskIntoConstraints = false
-//        return balanceAmount
-//    }()
-    
-//    lazy var amountIncome: UILabel = {
-//        let amountIncome = UILabel()
-//        amountIncome.font = .systemFont(ofSize: 18, weight: .regular)
-//        amountIncome.textColor = .systemGray
-//        amountIncome.layer.borderWidth = 0.5
-//        amountIncome.layer.cornerRadius = 12.0
-//        amountIncome.backgroundColor = .systemGray6
-//        amountIncome.textAlignment = .right
-//        amountIncome.text = "0"
-//        amountIncome.translatesAutoresizingMaskIntoConstraints = false
-//        return amountIncome
-//    }()
-//
-//    private lazy var amountExpenses: UILabel = {
-//        let amountExpenses = UILabel()
-//        amountExpenses.font = .systemFont(ofSize: 18, weight: .regular)
-//        amountExpenses.textColor = .systemGray
-//        amountExpenses.layer.borderWidth = 0.5
-//        amountExpenses.layer.cornerRadius = 12.0
-//        amountExpenses.backgroundColor = .systemGray6
-//        amountExpenses.textAlignment = .right
-//        amountExpenses.text = "0"
-//        amountExpenses.translatesAutoresizingMaskIntoConstraints = false
-//        return amountExpenses
-//    }()
-//
-    private var balance: UIView = {
-        let balance = TotalsView()
-//        balance.frame = CGRect(x: 20, y: 400, width: 0, height: 0)
-//        balance.labelTotal.text = "Перерасход/остаток бюджета"
-//        balance.layer.borderWidth = 0.5
-//        balance.layer.cornerRadius = 12.0
-//        balance.labelAmount.layer.borderWidth = 0.5
-//        balance.labelAmount.layer.cornerRadius = 12.0
-//        balance.labelAmount.text = "0"
-        return balance
-    }()
-
-    private var income: TotalsView = {
-        let income = TotalsView()
-//        income.frame = CGRect(x: 20, y: 480, width: 0, height: 0)
-//        balance.labelTotal.text = "Всего доходов"
-//        balance.labelTotal.layer.borderWidth = 0.5
-//        balance.labelTotal.layer.cornerRadius = 12.0
-//        balance.labelAmount.layer.borderWidth = 0.5
-//        balance.labelAmount.layer.cornerRadius = 12.0
-//        balance.labelAmount.text = "0"
-        return income
-    }()
-
-    private var cost: TotalsView = {
-        let cost = TotalsView()
-//        cost.frame = CGRect(x: 20, y: 560, width: 0, height: 0)
-//        balance.labelTotal.text = "Всего доходов"
-//        balance.labelTotal.layer.borderWidth = 0.5
-//        balance.labelTotal.layer.cornerRadius = 12.0
-//        balance.labelAmount.layer.borderWidth = 0.5
-//        balance.labelAmount.layer.cornerRadius = 12.0
-//        balance.labelAmount.text = "0"
-        return cost
-    }()
-
+ 
     private lazy var labelStackView: UIStackView = {
         let labelstackView = UIStackView()
         labelstackView.axis = .vertical
@@ -195,46 +95,25 @@ class BudgetViewController: UIViewController {
         labelstackView.translatesAutoresizingMaskIntoConstraints = false
         return labelstackView
     }()
-//
-//    private lazy var amountStackView: UIStackView = {
-//        let amountStackView = UIStackView()
-//        amountStackView.axis = .vertical
-//        amountStackView.distribution = .fillEqually
-//        amountStackView.spacing = 30
-//        amountStackView.translatesAutoresizingMaskIntoConstraints = false
-//        return amountStackView
-//    }()
-    
 
+  
     private func addConstraints() {
-
-
-        
-        view.addSubview(diagramImageView)
-        view.addSubview(statusStackView)
-        view.addSubview(labelStackView)
-        
-//        view.addSubview(labelStackView)
-//        view.addSubview(amountStackView)
-        
-        
+      // TO-DO
         statusStackView.addArrangedSubview(monthButton)
         statusStackView.addArrangedSubview(status)
         labelStackView.addArrangedSubview(balance)
         labelStackView.addArrangedSubview(income)
         labelStackView.addArrangedSubview(cost)
-//        labelStackView.addArrangedSubview(totalIncome)
-//        labelStackView.addArrangedSubview(totalExpenses)
-//        amountStackView.addArrangedSubview(balanceAmount)
-//        amountStackView.addArrangedSubview(amountIncome)
-//        amountStackView.addArrangedSubview(amountExpenses)
+
+      // TO-DO
+      NSLayoutConstraint.activate([
+        diagramImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+        diagramImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+        diagramImageView.heightAnchor.constraint(equalToConstant: Constant.diagramImageViewWidth),
+        diagramImageView.widthAnchor.constraint(equalToConstant: 180)
+      ])
 
         var constraints = [NSLayoutConstraint]()
-        
-        constraints.append(diagramImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10))
-        constraints.append(diagramImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20))
-        constraints.append(diagramImageView.heightAnchor.constraint(equalToConstant: 180))
-        constraints.append(diagramImageView.widthAnchor.constraint(equalToConstant: 180))
 
         constraints.append(statusStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30))
         constraints.append(statusStackView.leadingAnchor.constraint(equalTo: diagramImageView.trailingAnchor, constant: 20))
@@ -244,14 +123,6 @@ class BudgetViewController: UIViewController {
         constraints.append(labelStackView.topAnchor.constraint(equalTo: diagramImageView.bottomAnchor, constant: 50))
         constraints.append(labelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20))
         constraints.append(labelStackView.heightAnchor.constraint(equalToConstant: 240))
-//        constraints.append(labelStackView.heightAnchor.constraint(equalToConstant: 240))
-//        constraints.append(labelStackView.widthAnchor.constraint(equalToConstant: 240))
-
-//        constraints.append(amountStackView.topAnchor.constraint(equalTo: labelStackView.topAnchor))
-//        constraints.append(amountStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20))
-//        constraints.append(amountStackView.heightAnchor.constraint(equalToConstant: 240))
-//        constraints.append(amountStackView.widthAnchor.constraint(equalToConstant: 120))
-
 
         NSLayoutConstraint.activate(constraints)
     }

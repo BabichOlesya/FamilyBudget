@@ -21,40 +21,22 @@ class TotalsView: UIView {
             labelTotal.text = total
         }
     }
-    
+
     public var amount: String? {
         didSet {
             labelAmount.text = amount
         }
     }
 
-    
     override init(frame: CGRect) {
-            super.init(frame: frame)
-            self.setupView()
-        }
+      super.init(frame: frame)
+      initializeFromNib()
+    }
 
-        required init?(coder: NSCoder) {
-            super.init(coder: coder)
-            self.setupView()
-        }
-
-        private func setupView() {
-            let view = self.loadViewFromXib()
-            view.frame = self.bounds
-            view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.addSubview(view)
-        }
-
-
-        private func loadViewFromXib() -> UIView {
-            let nib = UINib(nibName: "TotalsView", bundle: Bundle.main)
-            let balanceView = nib.instantiate(withOwner: self, options: nil).first as! TotalsView
-            
-//            guard let view = Bundle.main.loadNibNamed("TotalsView", owner: nil, options: nil)?.first as? UIView else { return UIView() }
-            return balanceView
-        }
-    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        initializeFromNib()
+    }
 }
 
 

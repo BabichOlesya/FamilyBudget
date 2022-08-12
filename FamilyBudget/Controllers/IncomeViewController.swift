@@ -9,15 +9,20 @@ import UIKit
 
 class IncomeViewController: UIViewController {
     
-    var budgetManager = BudgetManager()
+  var budgetManager = BudgetManager()
+  var currentAccount = Account(name: "Сбер", currency: .rub, balance: 0)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        title = "Доходы"
-        
-        addConstraints()
-    }
+  @IBOutlet weak var tableView: UITableView!
+  var accounts = ["Acc1", "Acc2", "Acc3", "Acc4"]
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
+    tableView.dataSource = self
+    tableView.delegate = self
+    title = "Доходы"
+    addConstraints()
+  }
 
     private lazy var addIncomeButton: UIButton = {
         let addIncomeButton = UIButton()
@@ -31,17 +36,13 @@ class IncomeViewController: UIViewController {
         addIncomeButton.translatesAutoresizingMaskIntoConstraints = false
         return addIncomeButton
     }()
-    
 
-    var countSber = Account(name: "Сбер", currency: .rub, balance: 0)
-    
     @objc func buttonPressed() {
-        budgetManager.generateIncome(account: countSber, type: .salary, sum: 100, date: Date.now)
+        budgetManager.generateIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
         print("Создан доход")
     }
     
     private func addConstraints() {
-        
         view.addSubview(addIncomeButton)
 
         var constraints = [NSLayoutConstraint]()
@@ -51,8 +52,25 @@ class IncomeViewController: UIViewController {
         constraints.append(addIncomeButton.heightAnchor.constraint(equalToConstant: 50))
         constraints.append(addIncomeButton.widthAnchor.constraint(equalToConstant: 180))
 
-
-
         NSLayoutConstraint.activate(constraints)
     }
+}
+
+extension IncomeViewController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return accounts.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "AccountCell", for: indexPath)
+    // cell.accessoryType = .disclosureIndicator
+    cell.textLabel?.text = accounts[indexPath.row]
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let selectedCell = tableView.cellForRow(at: indexPath)
+    let selectedAccount = selectedCell?.textLabel?.text
+    // NSUserDefaults
+  }
 }

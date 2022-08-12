@@ -26,6 +26,7 @@
 		C6DC1EDC2886093600027BDD /* CostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EDB2886093600027BDD /* CostsViewController.swift */; };
 		C6DC1EDE28860D9800027BDD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EDD28860D9800027BDD /* Settings.swift */; };
 		C6DC1EE42888A7A300027BDD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */; };
+		E6DE0BD728A673E0006E06C9 /* UIView+LoadNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DE0BD628A673E0006E06C9 /* UIView+LoadNib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C6DC1EDB2886093600027BDD /* CostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewController.swift; sourceTree = "<group>"; };
 		C6DC1EDD28860D9800027BDD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E6DE0BD628A673E0006E06C9 /* UIView+LoadNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadNib.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C6DC1EDF2888A59200027BDD /* Views */,
 				C6DC1EE02888A5B500027BDD /* Controllers */,
 				C6BD18E82872341800E8F052 /* Model */,
+				E6DE0BD828A673E4006E06C9 /* Extensions */,
 				C6DC1EE12888A5CB00027BDD /* Main */,
 				C6DC1EE22888A68F00027BDD /* Resources */,
 			);
@@ -144,6 +147,14 @@
 				C610DE4A2869269600D2C524 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E6DE0BD828A673E4006E06C9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E6DE0BD628A673E0006E06C9 /* UIView+LoadNib.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 				C6DC1EDC2886093600027BDD /* CostsViewController.swift in Sources */,
 				C610DE422869269400D2C524 /* SceneDelegate.swift in Sources */,
 				C6DC1EE42888A7A300027BDD /* MainTabBarController.swift in Sources */,
+				E6DE0BD728A673E0006E06C9 /* UIView+LoadNib.swift in Sources */,
 				C6BD18EE28763BB200E8F052 /* User.swift in Sources */,
 				C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */,
 				C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */,
@@ -390,6 +402,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,6 +432,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

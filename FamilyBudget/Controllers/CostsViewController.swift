@@ -36,7 +36,7 @@ class CostsViewController: UIViewController {
     var countSber = Account(name: "Сбер", currency: .rub, balance: 0)
     
     @objc func buttonPressed() {
-        budgetManager.generateCost(account: countSber, type: .alcohol, sum: 100, date: Date.now)
+        //budgetManager.generateCost(account: countSber, type: .alcohol, sum: 100, date: Date.now)
         print("Создан расход")
         
     }
