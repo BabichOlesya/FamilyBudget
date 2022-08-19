@@ -13,16 +13,24 @@ class IncomeViewController: UIViewController {
   var currentAccount = Account(name: "Сбер", currency: .rub, balance: 0)
 
   @IBOutlet weak var tableView: UITableView!
-  var accounts = ["Acc1", "Acc2", "Acc3", "Acc4"]
+  var incomes = ["Income1", "Income2", "Income3", "Income4"]
+    
+    private enum Constant {
+        static let buttonViewWidth: CGFloat = 180.0
+        static let buttonViewHeight: CGFloat = 50.0
+        static let bottomIndentL: CGFloat = 50.0
+    }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.backgroundColor = .white
-    tableView.dataSource = self
-    tableView.delegate = self
-    title = "Доходы"
-    addConstraints()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        tableView.dataSource = self
+        tableView.delegate = self
+        title = "Доходы"
+        
+        view.addSubview(addIncomeButton)
+        addConstraints()
+    }
 
     private lazy var addIncomeButton: UIButton = {
         let addIncomeButton = UIButton()
@@ -43,28 +51,26 @@ class IncomeViewController: UIViewController {
     }
     
     private func addConstraints() {
-        view.addSubview(addIncomeButton)
 
-        var constraints = [NSLayoutConstraint]()
+      NSLayoutConstraint.activate([
+        addIncomeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL),
+        addIncomeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        addIncomeButton.heightAnchor.constraint(equalToConstant: Constant.buttonViewHeight),
+        addIncomeButton.widthAnchor.constraint(equalToConstant: Constant.buttonViewWidth)
         
-        constraints.append(addIncomeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50))
-        constraints.append(addIncomeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor))
-        constraints.append(addIncomeButton.heightAnchor.constraint(equalToConstant: 50))
-        constraints.append(addIncomeButton.widthAnchor.constraint(equalToConstant: 180))
-
-        NSLayoutConstraint.activate(constraints)
+      ])
     }
 }
 
 extension IncomeViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return accounts.count
+    return incomes.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "AccountCell", for: indexPath)
-    // cell.accessoryType = .disclosureIndicator
-    cell.textLabel?.text = accounts[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: "IncomeCell", for: indexPath)
+     cell.accessoryType = .disclosureIndicator
+    cell.textLabel?.text = incomes[indexPath.row]
     return cell
   }
   

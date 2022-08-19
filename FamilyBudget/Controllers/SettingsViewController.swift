@@ -8,10 +8,30 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    private enum Constant {
+        static let lateralIndent: CGFloat = 20.0
+        static let upperIndentS: CGFloat = 10.0
+        static let upperIndentL: CGFloat = 30.0
+        static let bottomIndentL: CGFloat = 50.0
+        static let settingsBudgetViewWidthL: CGFloat = 240.0
+        static let settingsBudgetViewWidthS: CGFloat = 120.0
+        static let settingsBudgetViewHeight: CGFloat = 180.0
+        static let spacing: CGFloat = 30
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        view.addSubview(labelStackView)
+        view.addSubview(amountStackView)
+        labelStackView.addArrangedSubview(mainCurrency)
+        labelStackView.addArrangedSubview(incomeAccounting)
+        labelStackView.addArrangedSubview(costAccounting)
+        amountStackView.addArrangedSubview(currancyButton)
+        amountStackView.addArrangedSubview(incomeSwitch)
+        amountStackView.addArrangedSubview(incomeSwitch)
         addConstraints()
     }
     
@@ -77,7 +97,7 @@ class SettingsViewController: UIViewController {
         let labelstackView = UIStackView()
         labelstackView.axis = .vertical
         labelstackView.distribution = .fillEqually
-        labelstackView.spacing = 30
+        labelstackView.spacing = Constant.spacing
         labelstackView.translatesAutoresizingMaskIntoConstraints = false
         return labelstackView
     }()
@@ -86,37 +106,25 @@ class SettingsViewController: UIViewController {
         let amountStackView = UIStackView()
         amountStackView.axis = .vertical
         amountStackView.distribution = .fillEqually
-        amountStackView.spacing = 30
+        amountStackView.spacing = Constant.spacing
         amountStackView.translatesAutoresizingMaskIntoConstraints = false
         return amountStackView
     }()
     
     private func addConstraints() {
+
+      NSLayoutConstraint.activate([
         
-        view.addSubview(labelStackView)
-        view.addSubview(amountStackView)
-        labelStackView.addArrangedSubview(mainCurrency)
-        labelStackView.addArrangedSubview(incomeAccounting)
-        labelStackView.addArrangedSubview(costAccounting)
-        amountStackView.addArrangedSubview(currancyButton)
-        amountStackView.addArrangedSubview(incomeSwitch)
-        amountStackView.addArrangedSubview(incomeSwitch)
+        labelStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentL),
+        labelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
+        labelStackView.heightAnchor.constraint(equalToConstant: Constant.settingsBudgetViewHeight),
+        labelStackView.widthAnchor.constraint(equalToConstant: Constant.settingsBudgetViewWidthL),
 
-        var constraints = [NSLayoutConstraint]()
+        amountStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentL),
+        amountStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
+        amountStackView.heightAnchor.constraint(equalToConstant: Constant.settingsBudgetViewHeight),
+        amountStackView.widthAnchor.constraint(equalToConstant: Constant.settingsBudgetViewWidthS)
         
-        
-        constraints.append(labelStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30))
-        constraints.append(labelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20))
-        constraints.append(labelStackView.heightAnchor.constraint(equalToConstant: 180))
-        constraints.append(labelStackView.widthAnchor.constraint(equalToConstant: 240))
-
-        constraints.append(amountStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30))
-        constraints.append(amountStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20))
-        constraints.append(amountStackView.heightAnchor.constraint(equalToConstant: 180))
-        constraints.append(amountStackView.widthAnchor.constraint(equalToConstant: 120))
-
-
-        NSLayoutConstraint.activate(constraints)
+      ])
     }
-    
 }

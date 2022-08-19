@@ -8,20 +8,23 @@
 import UIKit
 
 class BudgetViewController: UIViewController {
-    
-//    let bud = BudgetView()
-//    let budMan = BudgetManager()
-//    self.bud.textTitle = self.budMan.totalIncomes
 
   // MARK : Private API
-  private var balance = TotalsView()
-  private var income = TotalsView()
-  private var cost =  TotalsView()
+    private var balance = TotalsView()
+    private var income = TotalsView()
+    private var cost =  TotalsView()
   
-  // TO-DO
-  private enum Constant {
-    static let diagramImageViewWidth: CGFloat = 180.0
-  }
+    private enum Constant {
+        static let diagramImageViewWidth: CGFloat = 180.0
+        static let diagramImageViewHeight: CGFloat = 180.0
+        static let lateralIndent: CGFloat = 20.0
+        static let upperIndentS: CGFloat = 10.0
+        static let upperIndentL: CGFloat = 30.0
+        static let bottomIndentL: CGFloat = 50.0
+        static let totalBudgetViewHeight: CGFloat = 240.0
+        static let settingsBudgetViewHeight: CGFloat = 130.0
+        
+    }
 
   // MARK : Lifecycle
   
@@ -29,11 +32,16 @@ class BudgetViewController: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = .white
     title = "Бюджет"
-    
-    view.addSubview(diagramImageView)
-    view.addSubview(statusStackView)
-    view.addSubview(labelStackView)
-    addConstraints()
+      
+      view.addSubview(diagramImageView)
+      view.addSubview(statusStackView)
+      view.addSubview(labelStackView)
+      statusStackView.addArrangedSubview(monthButton)
+      statusStackView.addArrangedSubview(status)
+      labelStackView.addArrangedSubview(balance)
+      labelStackView.addArrangedSubview(income)
+      labelStackView.addArrangedSubview(cost)
+      addConstraints()
 
     let imageForSettings = UIImage(systemName: "circle.hexagonpath.fill")
     let buttonSettings = UIBarButtonItem(image: imageForSettings , style: .done, target: self, action: #selector(clickButtonSettings))
@@ -98,32 +106,23 @@ class BudgetViewController: UIViewController {
 
   
     private func addConstraints() {
-      // TO-DO
-        statusStackView.addArrangedSubview(monthButton)
-        statusStackView.addArrangedSubview(status)
-        labelStackView.addArrangedSubview(balance)
-        labelStackView.addArrangedSubview(income)
-        labelStackView.addArrangedSubview(cost)
 
-      // TO-DO
       NSLayoutConstraint.activate([
-        diagramImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-        diagramImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-        diagramImageView.heightAnchor.constraint(equalToConstant: Constant.diagramImageViewWidth),
-        diagramImageView.widthAnchor.constraint(equalToConstant: 180)
-      ])
-
-        var constraints = [NSLayoutConstraint]()
-
-        constraints.append(statusStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30))
-        constraints.append(statusStackView.leadingAnchor.constraint(equalTo: diagramImageView.trailingAnchor, constant: 20))
-        constraints.append(statusStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20))
-        constraints.append(statusStackView.heightAnchor.constraint(equalToConstant: 130))
         
-        constraints.append(labelStackView.topAnchor.constraint(equalTo: diagramImageView.bottomAnchor, constant: 50))
-        constraints.append(labelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20))
-        constraints.append(labelStackView.heightAnchor.constraint(equalToConstant: 240))
-
-        NSLayoutConstraint.activate(constraints)
+        diagramImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentS),
+        diagramImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
+        diagramImageView.heightAnchor.constraint(equalToConstant: Constant.diagramImageViewWidth),
+        diagramImageView.widthAnchor.constraint(equalToConstant: Constant.diagramImageViewHeight),
+        
+        statusStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentL),
+        statusStackView.leadingAnchor.constraint(equalTo: diagramImageView.trailingAnchor, constant: Constant.lateralIndent),
+        statusStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
+        statusStackView.heightAnchor.constraint(equalToConstant: Constant.settingsBudgetViewHeight),
+        
+        labelStackView.topAnchor.constraint(equalTo: diagramImageView.bottomAnchor, constant: Constant.bottomIndentL),
+        labelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
+        labelStackView.heightAnchor.constraint(equalToConstant: Constant.totalBudgetViewHeight)
+        
+      ])
     }
 }
