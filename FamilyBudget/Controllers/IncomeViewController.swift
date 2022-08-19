@@ -28,38 +28,37 @@ class IncomeViewController: UIViewController {
         tableView.delegate = self
         title = "Доходы"
         
-        view.addSubview(addIncomeButton)
-        addConstraints()
+//        addConstraints()
     }
 
-    private lazy var addIncomeButton: UIButton = {
-        let addIncomeButton = UIButton()
-        addIncomeButton.setTitle("Добавить", for: .normal)
-        addIncomeButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        addIncomeButton.backgroundColor = .systemGray2
-        addIncomeButton.layer.shadowColor = UIColor.black.cgColor
-        addIncomeButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        addIncomeButton.layer.cornerRadius = 7
-        addIncomeButton.layer.shadowOpacity = 1
-        addIncomeButton.translatesAutoresizingMaskIntoConstraints = false
-        return addIncomeButton
-    }()
-
-    @objc func buttonPressed() {
-        budgetManager.generateIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
-        print("Создан доход")
-    }
-    
-    private func addConstraints() {
-
-      NSLayoutConstraint.activate([
-        addIncomeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL),
-        addIncomeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        addIncomeButton.heightAnchor.constraint(equalToConstant: Constant.buttonViewHeight),
-        addIncomeButton.widthAnchor.constraint(equalToConstant: Constant.buttonViewWidth)
-        
-      ])
-    }
+//    private lazy var addIncomeButton: UIButton = {
+//        let addIncomeButton = UIButton()
+//        addIncomeButton.setTitle("Добавить", for: .normal)
+//        addIncomeButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+//        addIncomeButton.backgroundColor = .systemGray2
+//        addIncomeButton.layer.shadowColor = UIColor.black.cgColor
+//        addIncomeButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+//        addIncomeButton.layer.cornerRadius = 7
+//        addIncomeButton.layer.shadowOpacity = 1
+//        addIncomeButton.translatesAutoresizingMaskIntoConstraints = false
+//        return addIncomeButton
+//    }()
+//
+//    @objc func buttonPressed() {
+//        budgetManager.generateIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
+//        print("Создан доход")
+//    }
+//
+//    private func addConstraints() {
+//
+//      NSLayoutConstraint.activate([
+//        addIncomeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL),
+//        addIncomeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//        addIncomeButton.heightAnchor.constraint(equalToConstant: Constant.buttonViewHeight),
+//        addIncomeButton.widthAnchor.constraint(equalToConstant: Constant.buttonViewWidth)
+//
+//      ])
+//    }
 }
 
 extension IncomeViewController: UITableViewDelegate, UITableViewDataSource {
