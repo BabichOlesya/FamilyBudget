@@ -12,7 +12,7 @@ class AddCostViewController: UIViewController {
     // MARK : Private API
     private var addCost = AddIncomeCostView()
     private var budgetManager = BudgetManager()
-    var countSber = Account(name: "Сбер", currency: .rub, balance: 0)
+    var countSber = BankAccount(name: "Сбер", currency: .rub, balance: 0)
     
     private enum Constant {
         static let lateralIndent: CGFloat = 20.0
@@ -67,7 +67,7 @@ class AddCostViewController: UIViewController {
     
     
     @objc func buttonPressed() {
-        budgetManager.generateCost(account: countSber, type: .alcohol, sum: 100, date: Date())
+        budgetManager.createCost(account: countSber, type: .alcohol, sum: 100, date: Date())
         print("Создан расход")
         
     }
