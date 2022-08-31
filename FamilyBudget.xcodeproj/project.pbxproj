@@ -30,6 +30,7 @@
 		C6DC1EDC2886093600027BDD /* CostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EDB2886093600027BDD /* CostsViewController.swift */; };
 		C6DC1EDE28860D9800027BDD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EDD28860D9800027BDD /* Settings.swift */; };
 		C6DC1EE42888A7A300027BDD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */; };
+		D4FC5A2328B935A000F48650 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC5A2228B935A000F48650 /* BankAccount.swift */; };
 		E6DE0BD728A673E0006E06C9 /* UIView+LoadNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DE0BD628A673E0006E06C9 /* UIView+LoadNib.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		C6DC1EDB2886093600027BDD /* CostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewController.swift; sourceTree = "<group>"; };
 		C6DC1EDD28860D9800027BDD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		D4FC5A2228B935A000F48650 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
 		E6DE0BD628A673E0006E06C9 /* UIView+LoadNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadNib.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,10 +109,11 @@
 			isa = PBXGroup;
 			children = (
 				C6BD18E92872345E00E8F052 /* BudgetManager.swift */,
+				C6BD18F12876408800E8F052 /* BudgetData.swift */,
 				C6BD18ED28763BB200E8F052 /* User.swift */,
 				C6BD18EF28763E2200E8F052 /* Utilities.swift */,
-				C6BD18F12876408800E8F052 /* BudgetData.swift */,
 				C6DC1EDD28860D9800027BDD /* Settings.swift */,
+				D4FC5A2228B935A000F48650 /* BankAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				C6BD18EE28763BB200E8F052 /* User.swift in Sources */,
 				C6A0640B28AF071000353AD2 /* AddIncomeViewController.swift in Sources */,
 				C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */,
+				D4FC5A2328B935A000F48650 /* BankAccount.swift in Sources */,
 				C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

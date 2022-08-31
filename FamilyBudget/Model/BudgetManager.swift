@@ -7,26 +7,29 @@
 
 import UIKit
 
-class BudgetManager {
+public var incomeStorageKey = "incomeStorageKey"
+
+public class BudgetManager {
     
-    private var incomes: [Income] = []
+    private var incomes = [Income]()
     private var costs: [Cost] = []
+    private var costStorageKey = "costStorageKey"
     
-    func generateIncome(account: Account, type: TypesOfIncome, sum: Double, date: Date) {
+    func createIncome(account: BankAccount, type: IncomeType, sum: Double, date: Date) {
         let newIncome = Income(account: account, type: type, sum: sum, date: date)
-        incomes.append(newIncome)
+        saveIncome(newIncome)
     }
     
-    func generateCost(account: Account, type: TypesOfCost, sum: Double, date: Date) {
+    func createCost(account: BankAccount, type: CostType, sum: Double, date: Date) {
         let newCost = Cost(account: account, type: type, sum: sum, date: date)
         costs.append(newCost)
     }
-    
+
     var totalIncomes: Double {
         var sumIncomes: Double = 0
-        for income in incomes {
-            sumIncomes += income.sum
-        }
+//        for income in incomes {
+//            //sumIncomes += income.sum
+//        }
         return sumIncomes
     }
     
@@ -42,5 +45,29 @@ class BudgetManager {
         totalIncomes - totalCosts
     }
 
+//    NSUserDefaults
+//    KeyChain
+//    CoreData
+}
+
+/** Сохраняем и получаем данные с помощью классов JSONEncoder / JSONDecoder **/
+extension BudgetManager {
+    func saveIncome(_ income: Income) {
+        incomes.append(income)
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(incomes) {
+            UserDefaults.standard.set(encoded, forKey: incomeStorageKey)
+        }
+    }
+    
+    func fetchIncomes() -> [Income]? {
+        if let savedIncomes = UserDefaults.standard.object(forKey: incomeStorageKey) as? Data {
+            let decoder = JSONDecoder()
+            if let loadedIncomes = try? decoder.decode([Income].self, from: savedIncomes) {
+                return loadedIncomes
+            }
+        }
+        return nil
+    }
     
 }

@@ -12,7 +12,7 @@ class AddIncomeViewController: UIViewController {
     // MARK : Private API
     private var addIncome = AddIncomeCostView()
     private var budgetManager = BudgetManager()
-    var currentAccount = Account(name: "Сбер", currency: .rub, balance: 0)
+    var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
     
     private enum Constant {
         static let lateralIndent: CGFloat = 20.0
@@ -66,7 +66,7 @@ class AddIncomeViewController: UIViewController {
     }()
 
     @objc func buttonPressed() {
-        budgetManager.generateIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
+        budgetManager.createIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
         print("Создан доход")
     }
     
