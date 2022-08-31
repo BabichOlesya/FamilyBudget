@@ -31,20 +31,9 @@ class AddIncomeViewController: UIViewController {
         view.backgroundColor = .white
         title = "Создать доход"
         
-        view.addSubview(stackView)
-        stackView.addSubview(addIncomeView)
-        stackView.addSubview(addIncomeButton)
+        view.addSubview(addIncomeView)
         addConstraints()
     }
-    
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 30
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
     
     private lazy var addIncomeView: UIView = {
         let addIncomeView = AddIncomeCostView()
@@ -52,41 +41,14 @@ class AddIncomeViewController: UIViewController {
         return addIncomeView
     }()
     
-    private lazy var addIncomeButton: UIButton = {
-        let addIncomeButton = UIButton()
-        addIncomeButton.setTitle("Добавить", for: .normal)
-        addIncomeButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        addIncomeButton.backgroundColor = .systemGray2
-        addIncomeButton.layer.shadowColor = UIColor.black.cgColor
-        addIncomeButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        addIncomeButton.layer.cornerRadius = 7
-        addIncomeButton.layer.shadowOpacity = 1
-        addIncomeButton.translatesAutoresizingMaskIntoConstraints = false
-        return addIncomeButton
-    }()
-
-    @objc func buttonPressed() {
-        budgetManager.createIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
-        print("Создан доход")
-    }
-    
-    
-    
     private func addConstraints() {
         
         NSLayoutConstraint.activate([
             
-            
-            
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentXL),
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
-            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL),
-            addIncomeView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: Constant.upperIndentL),
-            addIncomeButton.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: -Constant.bottomIndentS),
-            addIncomeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            addIncomeButton.heightAnchor.constraint(equalToConstant: Constant.buttonViewHeight),
-            addIncomeButton.widthAnchor.constraint(equalToConstant: Constant.buttonViewWidth)
+            addIncomeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentXL),
+            addIncomeView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
+            addIncomeView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
+            addIncomeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL)
             
         ])
     }
