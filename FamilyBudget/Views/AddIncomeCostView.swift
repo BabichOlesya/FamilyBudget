@@ -2,48 +2,23 @@
 //  AddIncomeCostView.swift
 //  FamilyBudget
 //
-//  Created by Олеся Бабич on 18.8.22..
+//  Created by Олеся Бабич on 2.9.22..
 //
 
 import UIKit
 
 class AddIncomeCostView: UIView {
-    
-    @IBOutlet private weak var labelAccount: UILabel!
-    @IBOutlet private weak var labelItem: UILabel!
-    @IBOutlet private weak var labelSum: UILabel!
+
+    @IBOutlet private weak var labelBankAccount: UILabel!
+    @IBOutlet private weak var labelTypeIncomeCost: UILabel!
+    @IBOutlet private weak var LabelSum: UILabel!
+    @IBOutlet private weak var labelDate: UILabel!
+    @IBOutlet private weak var labelComment: UILabel!
     @IBOutlet private weak var labelSelectionAccount: UILabel!
-    @IBOutlet private weak var labelSelectionItems: UILabel!
-    @IBOutlet private weak var textfieldSum: UITextField!
-    
-    public var account: String? {
-        didSet {
-            labelAccount.text = account
-        }
-    }
-
-    public var item: String? {
-        didSet {
-            labelItem.text = item
-        }
-    }
-    
-    public var sum: String? {
-        didSet {
-            labelSum.text = sum
-        }
-    }
+    @IBOutlet private weak var labelSelectionType: UILabel!
+    @IBOutlet private weak var textFieldSum: UITextField!
+    @IBOutlet private weak var textFieldDate: UITextField!
+    @IBOutlet private weak var textFieldComment: UITextField!
     
     
-    override init(frame: CGRect) {
-      super.init(frame: frame)
-      initializeFromNib()
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initializeFromNib()
-    }
-
-
 }

@@ -10,7 +10,7 @@ import UIKit
 class AddIncomeViewController: UIViewController {
     
     // MARK : Private API
-    private var addIncome = AddIncomeCostView()
+    private var addIncome = IncomeCostView()
     private var budgetManager = BudgetManager()
     var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
     
@@ -36,7 +36,7 @@ class AddIncomeViewController: UIViewController {
     }
     
     private lazy var addIncomeView: UIView = {
-        let addIncomeView = AddIncomeCostView()
+        let addIncomeView = IncomeCostView()
         addIncomeView.translatesAutoresizingMaskIntoConstraints = false
         return addIncomeView
     }()

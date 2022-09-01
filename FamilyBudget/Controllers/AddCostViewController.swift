@@ -10,7 +10,7 @@ import UIKit
 class AddCostViewController: UIViewController {
     
     // MARK : Private API
-    private var addCost = AddIncomeCostView()
+    private var addCost = IncomeCostView()
     private var budgetManager = BudgetManager()
     var countSber = BankAccount(name: "Сбер", currency: .rub, balance: 0)
     
@@ -36,7 +36,7 @@ class AddCostViewController: UIViewController {
     }
     
     lazy var addCostView: UIView = {
-        let addCostView = AddIncomeCostView()
+        let addCostView = IncomeCostView()
         addCostView.translatesAutoresizingMaskIntoConstraints = false
         return addCostView
     }()
