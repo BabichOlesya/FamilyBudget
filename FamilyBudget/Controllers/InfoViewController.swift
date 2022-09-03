@@ -7,10 +7,12 @@
 
 import UIKit
 
-class AddIncomeViewController: UIViewController {
+class InfoViewController: UIViewController {
+    
+    public var currentIncome: Income?
     
     // MARK : Private API
-    private var addIncome = IncomeCostView()
+    private var incomeInfoView = IncomeCostView()
     private var budgetManager = BudgetManager()
     var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
     
@@ -31,25 +33,24 @@ class AddIncomeViewController: UIViewController {
         view.backgroundColor = .white
         title = "Создать доход"
         
-        view.addSubview(addIncomeView)
+        view.addSubview(incomeInfoView)
         addConstraints()
     }
     
-    private lazy var addIncomeView: UIView = {
-        let addIncomeView = IncomeCostView()
-        addIncomeView.translatesAutoresizingMaskIntoConstraints = false
-        return addIncomeView
-    }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        incomeInfoView.account = currentIncome?.account
+        incomeInfoView.incomeType = currentIncome?.type
+        incomeInfoView.sum = currentIncome?.sum
+    }
     
     private func addConstraints() {
         
         NSLayoutConstraint.activate([
-            
-            addIncomeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentXL),
-            addIncomeView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
-            addIncomeView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
-            addIncomeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL)
-            
+            incomeInfoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentXL),
+            incomeInfoView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
+            incomeInfoView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
+            incomeInfoView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL)
         ])
     }
     

@@ -12,25 +12,26 @@ class IncomeCostView: UIView {
     @IBOutlet private weak var labelAccount: UILabel!
     @IBOutlet private weak var labelItem: UILabel!
     @IBOutlet private weak var labelSum: UILabel!
+    
     @IBOutlet private weak var labelSelectionAccount: UILabel!
     @IBOutlet private weak var labelSelectionItems: UILabel!
     @IBOutlet private weak var labelSumValue: UILabel!
     
-    public var account: String? {
+    public var account: BankAccount? {
         didSet {
-            labelAccount.text = account
+            labelSelectionAccount.text = account?.name
         }
     }
 
-    public var item: String? {
+    public var incomeType: IncomeType? {
         didSet {
-            labelItem.text = item
+            labelSelectionItems.text = incomeType?.rawValue
         }
     }
     
-    public var sum: String? {
+    public var sum: Double? {
         didSet {
-            labelSum.text = sum
+            labelSumValue.text = "\(sum ?? 0)"
         }
     }
     

@@ -11,7 +11,8 @@ class IncomeViewController: UIViewController {
     
     var budgetManager = BudgetManager()
     var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
-
+    private let cellIdentifier = "IncomeCell"
+    
     @IBOutlet weak var tableView: UITableView!
     var incomes = [Income]()
     
@@ -28,6 +29,7 @@ class IncomeViewController: UIViewController {
         tableView.delegate = self
         title = "Доходы"
         
+        tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         view.addSubview(addIncomeButton)
         addConstraints()
         
@@ -51,6 +53,7 @@ class IncomeViewController: UIViewController {
     }()
 
     @objc func buttonPressed() {
+        
         budgetManager.createIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
         print("Создан доход")
     }
@@ -77,16 +80,16 @@ extension IncomeViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "IncomeCell", for: indexPath)
-      cell.accessoryType = .disclosureIndicator
-      let income = incomes[indexPath.row]
-      cell.textLabel?.text = "\(income.account.name): \(income.sum)"
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! InfoTableViewCell
+      cell.income = incomes[indexPath.row]
       return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let selectedCell = tableView.cellForRow(at: indexPath)
-    let selectedAccount = selectedCell?.textLabel?.text
-    // NSUserDefaults
+      let selectedCell = tableView.cellForRow(at: indexPath) as! InfoTableViewCell
+      let selectedItem = selectedCell.income
+      let infoController = InfoViewController()
+      infoController.currentIncome = selectedItem
+      navigationController?.pushViewController(infoController, animated: true)
   }
 }
