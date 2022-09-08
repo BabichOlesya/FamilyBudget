@@ -27,9 +27,9 @@ public class BudgetManager {
 
     var totalIncomes: Double {
         var sumIncomes: Double = 0
-//        for income in incomes {
-//            //sumIncomes += income.sum
-//        }
+        for income in incomes {
+            sumIncomes += income.sum
+        }
         return sumIncomes
     }
     

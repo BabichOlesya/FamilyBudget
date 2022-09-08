@@ -31,9 +31,14 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "Создать доход"
+        title = "Информация"
         
-        view.addSubview(incomeInfoView)
+        incomeInfoView.nameLabelAccount = "Счет"
+        incomeInfoView.nameLabelTypeIncomeCost = "Статья"
+        incomeInfoView.nameLabelSum = "Сумма"
+        
+        view.addSubview(labelStackView)
+        labelStackView.addArrangedSubview(incomeInfoView)
         addConstraints()
     }
     
@@ -44,13 +49,22 @@ class InfoViewController: UIViewController {
         incomeInfoView.sum = currentIncome?.sum
     }
     
+    private lazy var labelStackView: UIStackView = {
+        let labelstackView = UIStackView()
+        labelstackView.axis = .vertical
+        labelstackView.distribution = .fillEqually
+        labelstackView.spacing = Constant.spacing
+        labelstackView.translatesAutoresizingMaskIntoConstraints = false
+        return labelstackView
+    }()
+    
     private func addConstraints() {
         
         NSLayoutConstraint.activate([
-            incomeInfoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentXL),
-            incomeInfoView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
-            incomeInfoView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
-            incomeInfoView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL)
+            labelStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentXL),
+            labelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
+            labelStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
+            labelStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL)
         ])
     }
     

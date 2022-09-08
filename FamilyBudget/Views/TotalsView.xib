@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TotalsView" customModule="FamilyBudget" customModuleProvider="target">
             <connections>
-                <outlet property="labelAmount" destination="Z9n-kM-Dq5" id="UMY-Yo-N9H"/>
-                <outlet property="labelTotal" destination="gdU-cw-I5l" id="9e5-2s-pqr"/>
+                <outlet property="labelAmount" destination="gdU-cw-I5l" id="RfC-ve-VOL"/>
+                <outlet property="labelNameTotal" destination="Z9n-kM-Dq5" id="q8A-xj-FJv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

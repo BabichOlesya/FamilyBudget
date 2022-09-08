@@ -11,23 +11,24 @@ import UIKit
 
 class TotalsView: UIView {
     
-   
+    @IBOutlet private weak var labelNameTotal: UILabel!
+    
     @IBOutlet private weak var labelAmount: UILabel!
     
-    @IBOutlet private weak var labelTotal: UILabel!
+  
     
-    public var total: String? {
+    public var nameTotal: String? {
         didSet {
-            labelTotal.text = total
+            labelNameTotal.text = nameTotal
         }
     }
 
-    public var amount: String? {
+    public var amount: Double? {
         didSet {
-            labelAmount.text = amount
+            labelAmount.text = "\(amount ?? 0)"
         }
     }
-
+    
     override init(frame: CGRect) {
       super.init(frame: frame)
       initializeFromNib()

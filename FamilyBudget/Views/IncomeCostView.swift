@@ -10,12 +10,31 @@ import UIKit
 class IncomeCostView: UIView {
     
     @IBOutlet private weak var labelAccount: UILabel!
-    @IBOutlet private weak var labelItem: UILabel!
+    @IBOutlet private weak var labelIncomeCostType: UILabel!
     @IBOutlet private weak var labelSum: UILabel!
     
     @IBOutlet private weak var labelSelectionAccount: UILabel!
-    @IBOutlet private weak var labelSelectionItems: UILabel!
+    @IBOutlet private weak var labelSelectionType: UILabel!
     @IBOutlet private weak var labelSumValue: UILabel!
+    
+    public var nameLabelAccount: String? {
+        didSet {
+            labelAccount.text = nameLabelAccount
+        }
+    }
+    
+    public var nameLabelTypeIncomeCost: String? {
+        didSet {
+            labelIncomeCostType.text = nameLabelTypeIncomeCost
+        }
+    }
+    
+    public var nameLabelSum: String? {
+        didSet {
+            labelSum.text = nameLabelSum
+        }
+    }
+    
     
     public var account: BankAccount? {
         didSet {
@@ -25,7 +44,7 @@ class IncomeCostView: UIView {
 
     public var incomeType: IncomeType? {
         didSet {
-            labelSelectionItems.text = incomeType?.rawValue
+            labelSelectionType.text = incomeType?.rawValue
         }
     }
     
