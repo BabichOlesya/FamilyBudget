@@ -7,15 +7,10 @@
 
 import UIKit
 
-
-
 class TotalsView: UIView {
     
     @IBOutlet private weak var labelNameTotal: UILabel!
-    
     @IBOutlet private weak var labelAmount: UILabel!
-    
-  
     
     public var nameTotal: String? {
         didSet {
