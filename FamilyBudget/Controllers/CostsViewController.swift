@@ -48,7 +48,8 @@ class CostsViewController: UIViewController {
 
     @objc func buttonPressed() {
 //        budgetManager.generateCost(account: countSber, type: .alcohol, sum: 100, date: Date.now)
-        print("Создан расход")
+			let viewController = AddCostViewController()
+			navigationController?.pushViewController(viewController, animated: true)
 
     }
 

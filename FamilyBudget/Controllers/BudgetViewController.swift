@@ -34,28 +34,28 @@ class BudgetViewController: UIViewController {
     view.backgroundColor = .white
     title = "Бюджет"
       
-      balance.nameTotal = "Перерасход/остаток"
-      income.nameTotal = "Итого доходов"
-      cost.nameTotal = "Итого расходов"
-      
-      income.amount = budgetManager.totalIncomes
-      cost.amount = budgetManager.totalCosts
-      balance.amount = budgetManager.balance
-      
-      view.addSubview(diagramImageView)
-      view.addSubview(statusStackView)
-      view.addSubview(labelStackView)
-      statusStackView.addArrangedSubview(monthButton)
-      statusStackView.addArrangedSubview(status)
-      labelStackView.addArrangedSubview(balance)
-      labelStackView.addArrangedSubview(income)
-      labelStackView.addArrangedSubview(cost)
-      addConstraints()
+		balance.nameTotal = "Перерасход/остаток"
+		income.nameTotal = "Итого доходов"
+		cost.nameTotal = "Итого расходов"
+		
+		income.amount = budgetManager.totalIncomes
+		cost.amount = budgetManager.totalCosts
+		balance.amount = budgetManager.balance
+		
+		view.addSubview(diagramImageView)
+		view.addSubview(statusStackView)
+		view.addSubview(labelStackView)
+		statusStackView.addArrangedSubview(monthButton)
+		statusStackView.addArrangedSubview(status)
+		labelStackView.addArrangedSubview(balance)
+		labelStackView.addArrangedSubview(income)
+		labelStackView.addArrangedSubview(cost)
+		addConstraints()
 
     let imageForSettings = UIImage(systemName: "circle.hexagonpath.fill")
     let buttonSettings = UIBarButtonItem(image: imageForSettings , style: .done, target: self, action: #selector(clickButtonSettings))
     navigationItem.leftBarButtonItem = buttonSettings
-    }
+	}
     
     @objc func clickButtonSettings() {
         let settingsViewController = SettingsViewController()

@@ -9,48 +9,93 @@ import UIKit
 
 class AddCostViewController: UIViewController {
     
-    // MARK : Private API
-    private var addCost = IncomeCostView()
-    private var budgetManager = BudgetManager()
-    var countSber = BankAccount(name: "Сбер", currency: .rub, balance: 0)
+	// MARK : Private API
+	private var budgetManager = BudgetManager()
     
-    private enum Constant {
-        static let lateralIndent: CGFloat = 20.0
-        static let upperIndentS: CGFloat = 10.0
-        static let upperIndentL: CGFloat = 30.0
-        static let upperIndentXL: CGFloat = 50.0
-        static let bottomIndentS: CGFloat = 10.0
-        static let bottomIndentL: CGFloat = 50.0
-        static let spacing: CGFloat = 30
-        static let buttonViewWidth: CGFloat = 180.0
-        static let buttonViewHeight: CGFloat = 50.0
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        title = "Создать расход"
-        
-        view.addSubview(addCostView)
-        addConstraints()
-    }
-    
-    lazy var addCostView: UIView = {
-        let addCostView = IncomeCostView()
-        addCostView.translatesAutoresizingMaskIntoConstraints = false
-        return addCostView
-    }()
+	private var mainStackView: UIStackView = {
+		let stackView = UIStackView()
+		stackView.translatesAutoresizingMaskIntoConstraints = false
+		stackView.distribution = .fill
+		stackView.axis = .vertical
+		stackView.spacing = 8.0
+		return stackView
+	}()
+	
+	private var textField: UITextField = {
+		let textField = UITextField()
+		textField.translatesAutoresizingMaskIntoConstraints = false
+		textField.isUserInteractionEnabled = true
+		textField.layer.borderColor = UIColor.lightGray.cgColor
+		textField.layer.borderWidth = 0.5
+		textField.keyboardType = .alphabet
+		textField.returnKeyType = .next
+		return textField
+	}()
+	
+	private var amountLabel: UILabel = {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		label.text = "Сумма"
+		return label
+	}()
+	
+	private var confirmButton: UIButton = {
+		let button = UIButton(type: .custom)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.setTitle("Сохранить", for: .normal)
+		button.backgroundColor = .lightGray
+		button.addTarget(self, action: #selector(saveChanges), for: .touchUpInside)
+		return button
+	}()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		view.backgroundColor = .white
+		title = "Создать расход"
+		textField.delegate = self
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		mainStackView.addArrangedSubview(amountLabel)
+		mainStackView.addArrangedSubview(textField)
+		mainStackView.addArrangedSubview(confirmButton)
+		addConstraints()
+	}
+	
+	private func addConstraints() {
+			view.addSubview(mainStackView)
+			NSLayoutConstraint.activate([
+				mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0),
+				mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20.0),
+				mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20.0),
+				//mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20.0)
+					
+			])
+	}
+	
+	@objc private func saveChanges() {
+		print(textField.text)
+	}
+}
 
-    private func addConstraints() {
-        
-        NSLayoutConstraint.activate([
-            
-            addCostView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentXL),
-            addCostView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
-            addCostView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
-            addCostView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL)
-            
-        ])
-    }
-    
+extension AddCostViewController: UITextFieldDelegate {
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		print("Start")
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		let text = textField.text
+		print(text)
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		let text = textField.text
+		return true
+	}
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		let array = ["a", "b", "c"]
+		return array.contains(string)
+	}
 }
