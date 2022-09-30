@@ -11,71 +11,87 @@ class AddCostViewController: UIViewController {
     
 	// MARK : Private API
 	private var budgetManager = BudgetManager()
-    
-	private var mainStackView: UIStackView = {
-		let stackView = UIStackView()
-		stackView.translatesAutoresizingMaskIntoConstraints = false
-		stackView.distribution = .fill
-		stackView.axis = .vertical
-		stackView.spacing = 8.0
-		return stackView
-	}()
+    private var addCost = AddIncomeCostView()
 	
-	private var textField: UITextField = {
-		let textField = UITextField()
-		textField.translatesAutoresizingMaskIntoConstraints = false
-		textField.isUserInteractionEnabled = true
-		textField.layer.borderColor = UIColor.lightGray.cgColor
-		textField.layer.borderWidth = 0.5
-		textField.keyboardType = .alphabet
-		textField.returnKeyType = .next
-		return textField
-	}()
-	
-	private var amountLabel: UILabel = {
-		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = "Сумма"
-		return label
-	}()
-	
+//	private var textField: UITextField = {
+//		let textField = UITextField()
+//		textField.translatesAutoresizingMaskIntoConstraints = false
+//		textField.isUserInteractionEnabled = true
+//		textField.layer.borderColor = UIColor.lightGray.cgColor
+//		textField.layer.borderWidth = 0.5
+//		textField.keyboardType = .alphabet
+//		textField.returnKeyType = .next
+//		return textField
+//	}()
+//
+//	private var amountLabel: UILabel = {
+//		let label = UILabel()
+//		label.translatesAutoresizingMaskIntoConstraints = false
+//		label.text = "Сумма"
+//		return label
+//	}()
+//
 	private var confirmButton: UIButton = {
-		let button = UIButton(type: .custom)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Сохранить", for: .normal)
-		button.backgroundColor = .lightGray
-		button.addTarget(self, action: #selector(saveChanges), for: .touchUpInside)
-		return button
+		let confirmButton = UIButton(type: .custom)
+        confirmButton.translatesAutoresizingMaskIntoConstraints = false
+        confirmButton.setTitle("Сохранить", for: .normal)
+        confirmButton.backgroundColor = .lightGray
+        confirmButton.addTarget(AddCostViewController.self, action: #selector(saveChanges), for: .touchUpInside)
+		return confirmButton
 	}()
+    
+    private var mainStackView: UIStackView = {
+        let mainStackView = UIStackView()
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.distribution = .fill
+        mainStackView.axis = .vertical
+        mainStackView.spacing = 8.0
+        return mainStackView
+    }()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .white
 		title = "Создать расход"
-		textField.delegate = self
+        
+        view.addSubview(mainStackView)
+        mainStackView.addArrangedSubview(addCost)
+        mainStackView.addArrangedSubview(confirmButton)
+        addConstraints()
+//		textField.delegate = self
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		mainStackView.addArrangedSubview(amountLabel)
-		mainStackView.addArrangedSubview(textField)
-		mainStackView.addArrangedSubview(confirmButton)
-		addConstraints()
+//		mainStackView.addArrangedSubview(amountLabel)
+//		mainStackView.addArrangedSubview(textField)
+
+		
 	}
 	
 	private func addConstraints() {
-			view.addSubview(mainStackView)
 			NSLayoutConstraint.activate([
-				mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20.0),
-				mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20.0),
-				mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20.0),
-				//mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20.0)
+				mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5.0),
+				mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5.0),
+				mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5.0),
+                mainStackView.heightAnchor.constraint(equalToConstant: 600.0),
+                addCost.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+//                addCost.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+                addCost.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+                addCost.heightAnchor.constraint(equalToConstant: 520.0),
+                addCost.widthAnchor.constraint(equalToConstant: 370.0),
+                confirmButton.topAnchor.constraint(equalTo: addCost.bottomAnchor),
+                confirmButton.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+                confirmButton.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+                confirmButton.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor)
+//				mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20.0)
 					
 			])
 	}
 	
 	@objc private func saveChanges() {
-		print(textField.text)
+//		print(textField.text)
+        print("Save")
 	}
 }
 
