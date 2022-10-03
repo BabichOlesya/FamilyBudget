@@ -53,9 +53,10 @@ class IncomeViewController: UIViewController {
     }()
 
     @objc func buttonPressed() {
-        
-        budgetManager.createIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
-        print("Создан доход")
+        let viewController = AddIncomeViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+//        budgetManager.createIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
+//        print("Создан доход")
     }
     
     

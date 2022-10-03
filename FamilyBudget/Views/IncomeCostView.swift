@@ -64,22 +64,5 @@ class IncomeCostView: UIView {
         super.init(coder: coder)
         initializeFromNib()
     }
-//    
-//    lazy var textfieldSumv: UITextField = {
-//        let textfieldSum = UITextField()
-//        textfieldSum.placeholder = "Введите сумму"
-//        textfieldSum.adjustsFontSizeToFitWidth = true
-//        textfieldSum.minimumFontSize = 0.5
-//        textfieldSum.returnKeyType = .done
-//        textfieldSum.textColor = .systemGray4
-//        textfieldSum.borderStyle = .none
-//        textfieldSum.returnKeyType = .next
-//        textfieldSum.keyboardType = .default
-//        textfieldSum.clearButtonMode = .always
-//        textfieldSum.layer.cornerRadius = 7
-//        textfieldSum.translatesAutoresizingMaskIntoConstraints = false
-//        return textfieldSumv
-//    }()
-
 
 }

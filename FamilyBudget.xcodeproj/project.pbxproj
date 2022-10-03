@@ -17,8 +17,9 @@
 		C65F89C7286B9D4000E9EC9E /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */; };
 		C6603B94288F572400192518 /* TotalsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6603B93288F572400192518 /* TotalsView.xib */; };
 		C6603B962891DC7B00192518 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6603B952891DC7B00192518 /* TotalsView.swift */; };
-		C69916A528C00950007BF2AD /* AddIncomCostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69916A428C00950007BF2AD /* AddIncomCostView.xib */; };
+		C69916A528C00950007BF2AD /* AddIncomeCostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69916A428C00950007BF2AD /* AddIncomeCostView.xib */; };
 		C69916A728C1582E007BF2AD /* AddIncomeCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69916A628C1582E007BF2AD /* AddIncomeCostView.swift */; };
+		C69916A928EB8DA7007BF2AD /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69916A828EB8DA7007BF2AD /* AddIncomeViewController.swift */; };
 		C6A0640128AEE7B300353AD2 /* IncomeCostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6A0640028AEE7B300353AD2 /* IncomeCostView.xib */; };
 		C6A0640928AEE86800353AD2 /* IncomeCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0640828AEE86800353AD2 /* IncomeCostView.swift */; };
 		C6A0640B28AF071000353AD2 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0640A28AF071000353AD2 /* InfoViewController.swift */; };
@@ -51,8 +52,9 @@
 		C65F89C6286B9D4000E9EC9E /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		C6603B93288F572400192518 /* TotalsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalsView.xib; sourceTree = "<group>"; };
 		C6603B952891DC7B00192518 /* TotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
-		C69916A428C00950007BF2AD /* AddIncomCostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddIncomCostView.xib; sourceTree = "<group>"; };
+		C69916A428C00950007BF2AD /* AddIncomeCostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddIncomeCostView.xib; sourceTree = "<group>"; };
 		C69916A628C1582E007BF2AD /* AddIncomeCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeCostView.swift; sourceTree = "<group>"; };
+		C69916A828EB8DA7007BF2AD /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		C6A0640028AEE7B300353AD2 /* IncomeCostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeCostView.xib; sourceTree = "<group>"; };
 		C6A0640828AEE86800353AD2 /* IncomeCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCostView.swift; sourceTree = "<group>"; };
 		C6A0640A28AF071000353AD2 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +136,7 @@
 				C6603B952891DC7B00192518 /* TotalsView.swift */,
 				C6A0640028AEE7B300353AD2 /* IncomeCostView.xib */,
 				C6A0640828AEE86800353AD2 /* IncomeCostView.swift */,
-				C69916A428C00950007BF2AD /* AddIncomCostView.xib */,
+				C69916A428C00950007BF2AD /* AddIncomeCostView.xib */,
 				C69916A628C1582E007BF2AD /* AddIncomeCostView.swift */,
 				D4C6CF8128C39EC500A1659F /* InfoTableViewCell.xib */,
 				D4C6CF8328C39ED300A1659F /* InfoTableViewCell.swift */,
@@ -152,6 +154,7 @@
 				C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */,
 				C6A0640A28AF071000353AD2 /* InfoViewController.swift */,
 				C6A0640C28AF077D00353AD2 /* AddCostViewController.swift */,
+				C69916A828EB8DA7007BF2AD /* AddIncomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,7 +248,7 @@
 				C610DE4C2869269600D2C524 /* LaunchScreen.storyboard in Resources */,
 				C6603B94288F572400192518 /* TotalsView.xib in Resources */,
 				D4C6CF8228C39EC500A1659F /* InfoTableViewCell.xib in Resources */,
-				C69916A528C00950007BF2AD /* AddIncomCostView.xib in Resources */,
+				C69916A528C00950007BF2AD /* AddIncomeCostView.xib in Resources */,
 				C610DE492869269600D2C524 /* Assets.xcassets in Resources */,
 				C610DE472869269400D2C524 /* Main.storyboard in Resources */,
 				C6A0640128AEE7B300353AD2 /* IncomeCostView.xib in Resources */,
@@ -265,6 +268,7 @@
 				C6DC1EDE28860D9800027BDD /* Settings.swift in Sources */,
 				C65F89C7286B9D4000E9EC9E /* IncomeViewController.swift in Sources */,
 				C6A0640928AEE86800353AD2 /* IncomeCostView.swift in Sources */,
+				C69916A928EB8DA7007BF2AD /* AddIncomeViewController.swift in Sources */,
 				C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */,
 				C6BD18F22876408800E8F052 /* BudgetData.swift in Sources */,
 				C6BD18EA2872345E00E8F052 /* BudgetManager.swift in Sources */,
