@@ -11,13 +11,13 @@ class AddCostViewController: UIViewController {
     
 	// MARK : Private API
 	private var budgetManager = BudgetManager()
-    private var addCost = AddIncomeCostView()
+  private var addCostView = AddIncomeCostView()
     
-    private enum Constant {
-        static let lateralIndent: CGFloat = 20.0
-        static let bottomIndentL: CGFloat = 80.0
-        static let bottomHeight: CGFloat = 50
-    }
+  private enum Constant {
+      static let lateralIndent: CGFloat = 20.0
+      static let bottomIndentL: CGFloat = 80.0
+      static let bottomHeight: CGFloat = 50
+  }
 
 
 	private var confirmButton: UIButton = {
@@ -33,47 +33,54 @@ class AddCostViewController: UIViewController {
 		return confirmButton
 	}()
     
-    private var mainStackView: UIStackView = {
-        let mainStackView = UIStackView()
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.distribution = .fill
-        mainStackView.axis = .vertical
-        mainStackView.spacing = 8.0
-        return mainStackView
-    }()
+  private var mainStackView: UIStackView = {
+      let mainStackView = UIStackView()
+      mainStackView.translatesAutoresizingMaskIntoConstraints = false
+      mainStackView.distribution = .fill
+      mainStackView.axis = .vertical
+      mainStackView.spacing = 8.0
+      return mainStackView
+  }()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .white
 		title = "Создать расход"
         
-        addCost.nameBankAccount = "Счет банка"
-        addCost.nameTypeIncomeCost = "Статья расхода"
-        addCost.nameLabelSum = "Сумма расхода"
-        addCost.nameLabelDate = "Дата расхода"
-        addCost.nameLabelComment = "Комментарий"
-        addCost.selectionAccount = "Счета"
-        addCost.selectionType = "Статьи"
-        
-        view.addSubview(mainStackView)
-        mainStackView.addArrangedSubview(addCost)
-        mainStackView.addArrangedSubview(confirmButton)
-        addConstraints()
+    addCostView.nameBankAccount = "Счет банка"
+    addCostView.nameTypeIncomeCost = "Статья расхода"
+    addCostView.nameLabelSum = "Сумма расхода"
+    addCostView.nameLabelDate = "Дата расхода"
+    addCostView.nameLabelComment = "Комментарий"
+    addCostView.selectionAccount = "Счета"
+    addCostView.selectionType = "Статьи"
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard) )
+    view.addGestureRecognizer(tapGesture)
+    
+    view.addSubview(mainStackView)
+    mainStackView.addArrangedSubview(addCostView)
+    mainStackView.addArrangedSubview(confirmButton)
+    addConstraints()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 	}
 	
+  @objc func hideKeyboard() {
+    addCostView.endEditing(true)
+  }
+  
 	private func addConstraints() {
 			NSLayoutConstraint.activate([
                 mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.lateralIndent),
 				mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
 				mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
                 mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.lateralIndent),
-                addCost.topAnchor.constraint(equalTo: mainStackView.topAnchor),
-                addCost.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
-                addCost.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+                addCostView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+                addCostView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+                addCostView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
                 confirmButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.bottomIndentL),
                 confirmButton.heightAnchor.constraint(equalToConstant: Constant.bottomHeight),
                 confirmButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),

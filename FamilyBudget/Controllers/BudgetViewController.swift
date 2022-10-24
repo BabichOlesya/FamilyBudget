@@ -13,7 +13,6 @@ class BudgetViewController: UIViewController {
     private var balance = TotalsView()
     private var income = TotalsView()
     private var cost =  TotalsView()
-    private var budgetManager = BudgetManager()
   
     private enum Constant {
         static let diagramImageViewWidth: CGFloat = 180.0
@@ -33,14 +32,14 @@ class BudgetViewController: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = .white
     title = "Бюджет"
-      
+    
 		balance.nameTotal = "Перерасход/остаток"
 		income.nameTotal = "Итого доходов"
 		cost.nameTotal = "Итого расходов"
 		
-		income.amount = budgetManager.totalIncomes
-		cost.amount = budgetManager.totalCosts
-		balance.amount = budgetManager.balance
+    income.amount = BudgetManager.shared.totalIncomes
+    cost.amount = BudgetManager.shared.totalCosts
+    balance.amount = BudgetManager.shared.balance
 		
 		view.addSubview(diagramImageView)
 		view.addSubview(statusStackView)

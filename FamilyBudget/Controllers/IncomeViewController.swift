@@ -9,7 +9,6 @@ import UIKit
 
 class IncomeViewController: UIViewController {
     
-    var budgetManager = BudgetManager()
     var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
     private let cellIdentifier = "IncomeCell"
     
@@ -33,9 +32,9 @@ class IncomeViewController: UIViewController {
         view.addSubview(addIncomeButton)
         addConstraints()
         
-        budgetManager.createIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
-        budgetManager.createIncome(account: currentAccount, type: .investments, sum: 2000, date: Date())
-        incomes = budgetManager.fetchIncomes() ?? []
+        BudgetManager.shared.createIncome(account: currentAccount, type: .salary, sum: 100, date: Date())
+        BudgetManager.shared.createIncome(account: currentAccount, type: .investments, sum: 2000, date: Date())
+        incomes = BudgetManager.shared.fetchIncomes() ?? []
         tableView.reloadData()
     }
     

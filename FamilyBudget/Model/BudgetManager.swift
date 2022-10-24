@@ -11,10 +11,12 @@ public var incomeStorageKey = "incomeStorageKey"
 
 public class BudgetManager {
     
+    static var shared = BudgetManager()
+  
     private var incomes = [Income]()
     private var costs: [Cost] = []
     private var costStorageKey = "costStorageKey"
-    
+  
     func createIncome(account: BankAccount, type: IncomeType, sum: Double, date: Date) {
         let newIncome = Income(account: account, type: type, sum: sum, date: date)
         saveIncome(newIncome)

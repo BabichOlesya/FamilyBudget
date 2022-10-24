@@ -17,8 +17,8 @@ class AddIncomeCostView: UIView {
     @IBOutlet private weak var labelSelectionAccount: UILabel!
     @IBOutlet private weak var labelSelectionType: UILabel!
     @IBOutlet private weak var textFieldSum: UITextField!
-    @IBOutlet private weak var textFieldDate: UITextField!
-    @IBOutlet private weak var textFieldComment: UITextField!
+    @IBOutlet private weak var textFieldDate: UITextField! // TimePicker
+    @IBOutlet private weak var textFieldComment: UITextField! //TextView
     
     
     public var nameBankAccount: String? {
