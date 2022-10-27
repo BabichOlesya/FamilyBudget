@@ -13,7 +13,7 @@ class InfoViewController: UIViewController {
     
     // MARK : Private API
     private var incomeInfoView = IncomeCostView()
-    private var budgetManager = BudgetManager()
+//    private var budgetManager = BudgetManager()
     var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
     
     private enum Constant {

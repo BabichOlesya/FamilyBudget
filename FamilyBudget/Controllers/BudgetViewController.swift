@@ -85,7 +85,7 @@ class BudgetViewController: UIViewController {
     private lazy var monthButton: UIButton = {
         let monthButton = UIButton()
         monthButton.setTitle("Месяц", for: .normal)
-        monthButton.backgroundColor = .systemGray2
+        monthButton.backgroundColor = .systemBlue
         monthButton.layer.shadowColor = UIColor.black.cgColor
         monthButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         monthButton.layer.cornerRadius = 7

@@ -36,7 +36,7 @@ class CostsViewController: UIViewController {
         let addCostButton = UIButton()
         addCostButton.setTitle("Добавить", for: .normal)
         addCostButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        addCostButton.backgroundColor = .systemGray2
+        addCostButton.backgroundColor = .systemBlue
         addCostButton.layer.shadowColor = UIColor.black.cgColor
         addCostButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         addCostButton.layer.cornerRadius = 7

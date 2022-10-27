@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController {
     private lazy var currancyButton: UIButton = {
         let currancyButton = UIButton()
         currancyButton.setTitle("Валюта", for: .normal)
-        currancyButton.backgroundColor = .systemGray2
+        currancyButton.backgroundColor = .systemBlue
         currancyButton.layer.shadowColor = UIColor.black.cgColor
         currancyButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         currancyButton.layer.cornerRadius = 7

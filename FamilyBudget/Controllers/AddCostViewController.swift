@@ -10,107 +10,121 @@ import UIKit
 class AddCostViewController: UIViewController {
     
 	// MARK : Private API
-	private var budgetManager = BudgetManager()
-  private var addCostView = AddIncomeCostView()
+    private var addCostView = AddIncomeCostView()
     
-  private enum Constant {
-      static let lateralIndent: CGFloat = 20.0
-      static let bottomIndentL: CGFloat = 80.0
-      static let bottomHeight: CGFloat = 50
-  }
-
-
-	private var confirmButton: UIButton = {
-		let confirmButton = UIButton(type: .custom)
+    private enum Constant {
+        static let lateralIndent: CGFloat = 20.0
+        static let bottomIndentL: CGFloat = 80.0
+        static let bottomHeight: CGFloat = 50
+    }
+    
+    
+    private var confirmButton: UIButton = {
+        let confirmButton = UIButton(type: .custom)
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
         confirmButton.setTitle("Сохранить", for: .normal)
-        confirmButton.backgroundColor = .systemGray2
+        confirmButton.backgroundColor = .systemBlue
         confirmButton.layer.shadowColor = UIColor.black.cgColor
-        confirmButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         confirmButton.layer.cornerRadius = 7
         confirmButton.layer.shadowOpacity = 1
         confirmButton.addTarget(AddCostViewController.self, action: #selector(saveChanges), for: .touchUpInside)
-		return confirmButton
-	}()
+        return confirmButton
+    }()
     
-  private var mainStackView: UIStackView = {
-      let mainStackView = UIStackView()
-      mainStackView.translatesAutoresizingMaskIntoConstraints = false
-      mainStackView.distribution = .fill
-      mainStackView.axis = .vertical
-      mainStackView.spacing = 8.0
-      return mainStackView
-  }()
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		view.backgroundColor = .white
-		title = "Создать расход"
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    private var mainStackView: UIStackView = {
+        let mainStackView = UIStackView()
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.distribution = .fillEqually
+        mainStackView.axis = .vertical
+        mainStackView.spacing = 8.0
+        return mainStackView
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        title = "Создать расход"
         
-    addCostView.nameBankAccount = "Счет банка"
-    addCostView.nameTypeIncomeCost = "Статья расхода"
-    addCostView.nameLabelSum = "Сумма расхода"
-    addCostView.nameLabelDate = "Дата расхода"
-    addCostView.nameLabelComment = "Комментарий"
-    addCostView.selectionAccount = "Счета"
-    addCostView.selectionType = "Статьи"
+        addCostView.nameBankAccount = "Счет банка"
+        addCostView.nameTypeIncomeCost = "Статья расхода"
+        addCostView.nameLabelSum = "Сумма расхода"
+        addCostView.nameLabelDate = "Дата расхода"
+        addCostView.nameLabelComment = "Комментарий"
+        addCostView.selectionAccount = "Счета"
+        addCostView.selectionType = "Статьи"
+        
+
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard) )
+        view.addGestureRecognizer(tapGesture)
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(mainStackView)
+        mainStackView.addArrangedSubview(addCostView)
+        mainStackView.addArrangedSubview(confirmButton)
+        addConstraints()
+    }
     
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard) )
-    view.addGestureRecognizer(tapGesture)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
-    view.addSubview(mainStackView)
-    mainStackView.addArrangedSubview(addCostView)
-    mainStackView.addArrangedSubview(confirmButton)
-    addConstraints()
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-	}
-	
-  @objc func hideKeyboard() {
-    addCostView.endEditing(true)
-  }
-  
-	private func addConstraints() {
-			NSLayoutConstraint.activate([
-                mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.lateralIndent),
-				mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
-				mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
-                mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.lateralIndent),
-                addCostView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
-                addCostView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
-                addCostView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
-                confirmButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.bottomIndentL),
-                confirmButton.heightAnchor.constraint(equalToConstant: Constant.bottomHeight),
-                confirmButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-                confirmButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL)
-			])
-	}
-	
-	@objc private func saveChanges() {
-//		print(textField.text)
+    @objc func hideKeyboard() {
+        addCostView.endEditing(true)
+    }
+    
+   
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            
+            addCostView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+            addCostView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+            addCostView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+            confirmButton.topAnchor.constraint(equalTo: addCostView.bottomAnchor),
+            confirmButton.heightAnchor.constraint(equalToConstant: 40),
+            confirmButton.widthAnchor.constraint(equalToConstant: 120),
+            confirmButton.centerXAnchor.constraint(equalTo: mainStackView.centerXAnchor)
+        ])
+    }
+    
+    @objc private func saveChanges() {
+        //		print(textField.text)
         print("Save")
-	}
+    }
 }
 
 extension AddCostViewController: UITextFieldDelegate {
-	func textFieldDidBeginEditing(_ textField: UITextField) {
-		print("Start")
-	}
-	
-	func textFieldDidEndEditing(_ textField: UITextField) {
-		let text = textField.text
-		print(text)
-	}
-	
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		let text = textField.text
-		return true
-	}
-	
-	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-		let array = ["a", "b", "c"]
-		return array.contains(string)
-	}
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("Start")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let text = textField.text
+        print(text)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let text = textField.text
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let array = ["a", "b", "c"]
+        return array.contains(string)
+    }
 }

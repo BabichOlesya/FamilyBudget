@@ -42,7 +42,7 @@ class IncomeViewController: UIViewController {
         let addIncomeButton = UIButton()
         addIncomeButton.setTitle("Добавить", for: .normal)
         addIncomeButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        addIncomeButton.backgroundColor = .systemGray2
+        addIncomeButton.backgroundColor = .systemBlue
         addIncomeButton.layer.shadowColor = UIColor.black.cgColor
         addIncomeButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         addIncomeButton.layer.cornerRadius = 7
