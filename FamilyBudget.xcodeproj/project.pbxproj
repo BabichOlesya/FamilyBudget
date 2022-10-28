@@ -27,7 +27,7 @@
 		C6BD18EA2872345E00E8F052 /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18E92872345E00E8F052 /* BudgetManager.swift */; };
 		C6BD18EE28763BB200E8F052 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18ED28763BB200E8F052 /* User.swift */; };
 		C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18EF28763E2200E8F052 /* Utilities.swift */; };
-		C6BD18F22876408800E8F052 /* BudgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18F12876408800E8F052 /* BudgetData.swift */; };
+		C6BD18F22876408800E8F052 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18F12876408800E8F052 /* Income.swift */; };
 		C6BD18FE287CD55900E8F052 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18FD287CD55900E8F052 /* BudgetView.swift */; };
 		C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9202F286D0C9A00188083 /* SettingsViewController.swift */; };
 		C6DC1EDC2886093600027BDD /* CostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EDB2886093600027BDD /* CostsViewController.swift */; };
@@ -35,6 +35,8 @@
 		C6DC1EE42888A7A300027BDD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */; };
 		D4C6CF8228C39EC500A1659F /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C6CF8128C39EC500A1659F /* InfoTableViewCell.xib */; };
 		D4C6CF8428C39ED300A1659F /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6CF8328C39ED300A1659F /* InfoTableViewCell.swift */; };
+		D4FB1211290C0B0E00361761 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB1210290C0B0E00361761 /* Expense.swift */; };
+		D4FB1213290C0C1D00361761 /* IncomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FB1212290C0C1D00361761 /* IncomeManager.swift */; };
 		D4FC5A2328B935A000F48650 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC5A2228B935A000F48650 /* BankAccount.swift */; };
 		E6DE0BD728A673E0006E06C9 /* UIView+LoadNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DE0BD628A673E0006E06C9 /* UIView+LoadNib.swift */; };
 /* End PBXBuildFile section */
@@ -62,7 +64,7 @@
 		C6BD18E92872345E00E8F052 /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
 		C6BD18ED28763BB200E8F052 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6BD18EF28763E2200E8F052 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		C6BD18F12876408800E8F052 /* BudgetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetData.swift; sourceTree = "<group>"; };
+		C6BD18F12876408800E8F052 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 		C6BD18FD287CD55900E8F052 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
 		C6D9202F286D0C9A00188083 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C6DC1EDB2886093600027BDD /* CostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,8 @@
 		C6DC1EE32888A7A300027BDD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D4C6CF8128C39EC500A1659F /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		D4C6CF8328C39ED300A1659F /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		D4FB1210290C0B0E00361761 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		D4FB1212290C0C1D00361761 /* IncomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeManager.swift; sourceTree = "<group>"; };
 		D4FC5A2228B935A000F48650 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
 		E6DE0BD628A673E0006E06C9 /* UIView+LoadNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadNib.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,11 +123,13 @@
 			isa = PBXGroup;
 			children = (
 				C6BD18E92872345E00E8F052 /* BudgetManager.swift */,
-				C6BD18F12876408800E8F052 /* BudgetData.swift */,
+				C6BD18F12876408800E8F052 /* Income.swift */,
 				C6BD18ED28763BB200E8F052 /* User.swift */,
 				C6BD18EF28763E2200E8F052 /* Utilities.swift */,
 				C6DC1EDD28860D9800027BDD /* Settings.swift */,
 				D4FC5A2228B935A000F48650 /* BankAccount.swift */,
+				D4FB1210290C0B0E00361761 /* Expense.swift */,
+				D4FB1212290C0C1D00361761 /* IncomeManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4FB1211290C0B0E00361761 /* Expense.swift in Sources */,
 				C6603B962891DC7B00192518 /* TotalsView.swift in Sources */,
 				C610DE442869269400D2C524 /* ViewController.swift in Sources */,
 				C6BD18FE287CD55900E8F052 /* BudgetView.swift in Sources */,
@@ -270,7 +277,7 @@
 				C6A0640928AEE86800353AD2 /* IncomeCostView.swift in Sources */,
 				C69916A928EB8DA7007BF2AD /* AddIncomeViewController.swift in Sources */,
 				C6D92030286D0C9A00188083 /* SettingsViewController.swift in Sources */,
-				C6BD18F22876408800E8F052 /* BudgetData.swift in Sources */,
+				C6BD18F22876408800E8F052 /* Income.swift in Sources */,
 				C6BD18EA2872345E00E8F052 /* BudgetManager.swift in Sources */,
 				C610DE402869269400D2C524 /* AppDelegate.swift in Sources */,
 				C6DC1EDC2886093600027BDD /* CostsViewController.swift in Sources */,
@@ -280,6 +287,7 @@
 				E6DE0BD728A673E0006E06C9 /* UIView+LoadNib.swift in Sources */,
 				C6BD18EE28763BB200E8F052 /* User.swift in Sources */,
 				C6A0640B28AF071000353AD2 /* InfoViewController.swift in Sources */,
+				D4FB1213290C0C1D00361761 /* IncomeManager.swift in Sources */,
 				C69916A728C1582E007BF2AD /* AddIncomeCostView.swift in Sources */,
 				C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */,
 				D4C6CF8428C39ED300A1659F /* InfoTableViewCell.swift in Sources */,

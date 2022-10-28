@@ -11,6 +11,8 @@ enum IncomeType: String, Codable {
     case salary, social, rent, present, business, investments
 }
 
+public var incomeStorageKey = "incomeStorageKey"
+
 public struct Income: Codable {
     var account: BankAccount
     var type: IncomeType
@@ -49,16 +51,4 @@ public struct Income: Codable {
         try container.encode(date, forKey: .date)
         try container.encode(comment, forKey: .comment)
     }
-}
-
-enum CostType {
-    case food, clothes, sport, health, education, vacation, auto, communal, rent, coffee, alcohol, entertainment
-}
-
-struct Cost {
-    var account: BankAccount
-    var type: CostType
-    var sum: Double
-    var date: Date
-    var comment: String?
 }

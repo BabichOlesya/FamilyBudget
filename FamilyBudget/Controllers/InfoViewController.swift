@@ -13,8 +13,8 @@ class InfoViewController: UIViewController {
     
     // MARK : Private API
     private var incomeInfoView = IncomeCostView()
-//    private var budgetManager = BudgetManager()
-    var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
+    private var budgetManager = BudgetManager()
+    var currentAccount = BankAccount(name: "Сбер", currency: .rub)
     
     private enum Constant {
         static let lateralIndent: CGFloat = 20.0

@@ -9,7 +9,7 @@ import UIKit
 
 class IncomeViewController: UIViewController {
     
-    var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
+    var currentAccount = BankAccount(name: "Сбер", currency: .rub)
     private let cellIdentifier = "IncomeCell"
     
     @IBOutlet weak var tableView: UITableView!

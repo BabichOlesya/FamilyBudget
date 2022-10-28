@@ -8,17 +8,16 @@
 import Foundation
 
 public struct BankAccount {
-    var name: String
-    var description: String?
-    var currency: Currency
-    var balance: Double
+  var name: String
+  var description: String?
+  var currency: Currency
+  var balance: Double = 0.0
 
-    init(name: String, description: String? = nil, currency: Currency, balance: Double) {
-        self.name = name
-        self.description = description
-        self.currency = currency
-        self.balance = balance
-    }
+  init(name: String, description: String? = nil, currency: Currency) {
+    self.name = name
+    self.description = description
+    self.currency = currency
+  }
 }
 
 extension BankAccount: Codable {

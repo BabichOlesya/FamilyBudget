@@ -8,9 +8,9 @@
 import Foundation
 
 enum Sex {
-    case male, female, undefined
+  case male, female, undefined
 }
 
 enum Currency: String, Codable {
-    case rub, eur, usd, gbp
+  case rub, eur, usd, gbp
 }
