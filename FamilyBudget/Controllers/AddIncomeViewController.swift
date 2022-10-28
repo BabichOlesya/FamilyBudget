@@ -12,7 +12,7 @@ class AddIncomeViewController: UIViewController {
     // MARK : Private API
     private var addIncome = IncomeCostView()
 //    private var budgetManager = BudgetManager()
-    var currentAccount = BankAccount(name: "Сбер", currency: .rub, balance: 0)
+    var currentAccount = BankAccount(name: "Сбер", currency: .rub)
     
     private enum Constant {
         static let lateralIndent: CGFloat = 10.0

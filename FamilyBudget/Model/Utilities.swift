@@ -13,4 +13,17 @@ enum Sex {
 
 enum Currency: String, Codable {
   case rub, eur, usd, gbp
+  
+  var symbol: String {
+    switch self {
+    case .eur:
+      return "€"
+    case .rub:
+      return "Rub"
+    case .usd:
+      return "$"
+    case .gbp:
+      return "£"
+    }
+  }
 }

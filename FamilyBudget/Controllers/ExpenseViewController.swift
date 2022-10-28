@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CostsViewController: UIViewController {
+class ExpensesViewController: UIViewController {
 
 //    var budgetManager = BudgetManager()
 //    var countSber = Account(name: "Сбер", currency: .rub, balance: 0)
@@ -66,7 +66,7 @@ class CostsViewController: UIViewController {
     }
 
 }
-extension CostsViewController: UITableViewDelegate, UITableViewDataSource {
+extension ExpensesViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return costs.count
   }

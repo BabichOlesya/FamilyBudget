@@ -28,7 +28,9 @@ class IncomeViewController: UIViewController {
         tableView.delegate = self
         title = "Доходы"
         
-        tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        let nib = UINib(nibName:"InfoTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+        
         view.addSubview(addIncomeButton)
         addConstraints()
         
@@ -80,9 +82,10 @@ extension IncomeViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! InfoTableViewCell
-      cell.income = incomes[indexPath.row]
-      return cell
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! InfoTableViewCell
+    cell.income = incomes[indexPath.row]
+    cell.setup()
+    return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -91,5 +94,9 @@ extension IncomeViewController: UITableViewDelegate, UITableViewDataSource {
       let infoController = InfoViewController()
       infoController.currentIncome = selectedItem
       navigationController?.pushViewController(infoController, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    60.0
   }
 }
