@@ -9,31 +9,25 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-    private let titles = ["Budget", "Costs", "Income"] // почему это не безопасно?
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    private let icons: [UIImage?] = [UIImage(named: "bag.circle"), UIImage(named: "minus.circle"), UIImage(named: "plus.circle")] //добавь икноки в Assets
+    let incomeController = IncomesViewController()
+    incomeController.tabBarItem = UITabBarItem(title: "Incomes", image: UIImage(named: "plus.circle"), tag: 0)
+    let incomeNavigationController = UINavigationController(rootViewController: incomeController)
 
-    override var viewControllers: [UIViewController]? {
-        didSet {
-            setTitles()
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setTitles()
-        setIcons()
-    }
-
-    private func setIcons() {
-        tabBar.items?.enumerated().forEach { index, item in
-            item.image = icons[index]
-        }
-    }
-
-    private func setTitles() {
-        viewControllers?.enumerated().forEach { index, controller in
-            controller.title = titles[index]
-        }
-    }
+    let budgetController = BudgetViewController()
+    budgetController.tabBarItem = UITabBarItem(title: "Budget",
+                                               image: UIImage(named: "bag.circle"),
+                                               tag: 1)
+    let budgetNavigationController = UINavigationController(rootViewController: budgetController)
+    
+    let expensesController = ExpensesViewController()
+    expensesController.tabBarItem = UITabBarItem(title: "Expenses",
+                                                 image: UIImage(named: "minus.circle"),
+                                                 tag: 2)
+    let expensesNavigationController = UINavigationController(rootViewController: expensesController)
+    
+    viewControllers = [incomeNavigationController, budgetNavigationController, expensesNavigationController]
+  }
 }

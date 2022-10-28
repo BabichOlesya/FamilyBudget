@@ -46,7 +46,7 @@ class InfoViewController: UIViewController {
         super.viewWillAppear(animated)
         incomeInfoView.account = currentIncome?.account
         incomeInfoView.incomeType = currentIncome?.type
-        incomeInfoView.sum = currentIncome?.sum
+        incomeInfoView.sum = currentIncome?.amount
     }
     
     private lazy var labelStackView: UIStackView = {

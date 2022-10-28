@@ -7,23 +7,25 @@
 
 import Foundation
 
+public var expenseStorageKey = "costStorageKey"
+
 enum ExpenseType: String, Codable {
     case food, clothes, sport, health, education, vacation, auto, communal, rent, coffee, alcohol, entertainment
 }
 
-public var expenseStorageKey = "costStorageKey"
 
-struct Expense: Codable {
+struct Expense: FinanceInformation, Codable {
   var account: BankAccount
+  var transactionType: Transaction = .expense
   var type: ExpenseType
-  var sum: Double
+  var amount: Double
   var date: Date?
   var comment: String?
   
-  init(account: BankAccount, type: ExpenseType, sum: Double, date: Date? = Date(), comment: String? = nil) {
+  init(account: BankAccount, type: ExpenseType, amount: Double, date: Date? = Date(), comment: String? = nil) {
       self.account = account
       self.type = type
-      self.sum = sum
+      self.amount = amount
       self.date = date
       self.comment = comment
   }
@@ -31,14 +33,14 @@ struct Expense: Codable {
   enum CodingKeys: String, CodingKey {
       case account = "account"
       case type = "type"
-      case sum, date, comment
+      case amount, date, comment
   }
 
   public init(from decoder: Decoder) throws {
       let container = try decoder.container(keyedBy: CodingKeys.self)
       account = try container.decode(BankAccount.self, forKey: .account)
       type = try container.decode(ExpenseType.self, forKey: .type)
-      sum = try container.decode(Double.self, forKey: .sum)
+      amount = try container.decode(Double.self, forKey: .amount)
       date = try container.decode(Date?.self, forKey: .date)
       comment = try container.decode(String?.self, forKey: .comment)
   }
@@ -47,7 +49,7 @@ struct Expense: Codable {
       var container = encoder.container(keyedBy: CodingKeys.self)
       try container.encode(account, forKey: .account)
       try container.encode(type, forKey: .type)
-      try container.encode(sum, forKey: .sum)
+      try container.encode(amount, forKey: .amount)
       try container.encode(date, forKey: .date)
       try container.encode(comment, forKey: .comment)
   }

@@ -7,6 +7,16 @@
 
 import Foundation
 
+public enum Transaction {
+  case income, expense
+}
+
+public protocol FinanceInformation {
+  var account: BankAccount { get }
+  var transactionType: Transaction { get }
+  var amount: Double { get }
+}
+
 public class BudgetManager {
     
     static var shared = BudgetManager()
@@ -14,34 +24,26 @@ public class BudgetManager {
     private var incomes = [Income]()
     private var expenses = [Expense]()
   
-    func createIncome(account: BankAccount, type: IncomeType, sum: Double, date: Date) {
-        let newIncome = Income(account: account, type: type, sum: sum, date: date)
+    func createIncome(account: BankAccount, type: IncomeType, amount: Double, date: Date) {
+        let newIncome = Income(account: account, type: type, amount: amount, date: date)
         saveIncome(newIncome)
     }
     
-    func createCost(account: BankAccount, type: ExpenseType, sum: Double, date: Date) {
-        let newExpense = Expense(account: account, type: type, sum: sum, date: date)
+    func createExpense(account: BankAccount, type: ExpenseType, amount: Double, date: Date) {
+        let newExpense = Expense(account: account, type: type, amount: amount, date: date)
         saveExpense(newExpense)
     }
 
     var totalIncomes: Double {
-        var sumIncomes: Double = 0
-        for income in incomes {
-            sumIncomes += income.sum
-        }
-        return sumIncomes
+      incomes.map{ $0.amount }.reduce(0, +)
     }
     
-    var totalCosts: Double {
-        var sumCosts: Double = 0
-        for expense in expenses {
-            sumCosts += expense.sum
-        }
-        return sumCosts
+    var totalExpenses: Double {
+      expenses.map{ $0.amount }.reduce(0, +)
     }
     
     var balance: Double {
-        totalIncomes - totalCosts
+      totalIncomes - totalExpenses
     }
 }
 

@@ -14,14 +14,28 @@ class InfoTableViewCell: UITableViewCell {
   @IBOutlet weak var typeLabel: UILabel!
   @IBOutlet weak var amountLabel: UILabel!
   
-  public var income: Income?
-    
+  public var transaction: FinanceInformation?
+
+  public static let identifier = "InfoTableViewCell"
+
   public func setup() {
-    guard let income = income else {
-      return
+    if let transaction = transaction as? Income {
+      setupIncomeItem(transaction)
     }
+    if let transaction = transaction as? Expense {
+      setupExpenseItem(transaction)
+    }
+  }
+  
+  private func setupIncomeItem(_ income: Income) {
     accountLabel.text = income.account.name
     typeLabel.text = income.type.rawValue
-    amountLabel.text = "\(income.sum) \(income.account.currency.symbol)"
+    amountLabel.text = "\(income.amount) \(income.account.currency.symbol)"
+  }
+  
+  private func setupExpenseItem(_ expense: Expense) {
+    accountLabel.text = expense.account.name
+    typeLabel.text = expense.type.rawValue
+    amountLabel.text = "\(expense.amount) \(expense.account.currency.symbol)"
   }
 }

@@ -40,7 +40,7 @@ class AddCostViewController: UIViewController {
     private var mainStackView: UIStackView = {
         let mainStackView = UIStackView()
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.distribution = .fillEqually
+        mainStackView.distribution = .fill
         mainStackView.axis = .vertical
         mainStackView.spacing = 8.0
         return mainStackView
@@ -50,7 +50,7 @@ class AddCostViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Создать расход"
-        
+
         addCostView.nameBankAccount = "Счет банка"
         addCostView.nameTypeIncomeCost = "Статья расхода"
         addCostView.nameLabelSum = "Сумма расхода"
@@ -59,20 +59,18 @@ class AddCostViewController: UIViewController {
         addCostView.selectionAccount = "Счета"
         addCostView.selectionType = "Статьи"
         
-
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard) )
         view.addGestureRecognizer(tapGesture)
-        
-        view.addSubview(scrollView)
-        scrollView.addSubview(mainStackView)
-        mainStackView.addArrangedSubview(addCostView)
-        mainStackView.addArrangedSubview(confirmButton)
-        addConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+      // view.addSubview(scrollView)
+      // scrollView.addSubview(mainStackView)
+      mainStackView.addArrangedSubview(addCostView)
+      mainStackView.addArrangedSubview(confirmButton)
+      view.addSubview(mainStackView)
+      addConstraints()
     }
     
     @objc func hideKeyboard() {
@@ -82,26 +80,26 @@ class AddCostViewController: UIViewController {
    
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            addCostView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
-            addCostView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
-            addCostView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
-            confirmButton.topAnchor.constraint(equalTo: addCostView.bottomAnchor),
+//            addCostView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+//            addCostView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+//            addCostView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
             confirmButton.heightAnchor.constraint(equalToConstant: 40),
             confirmButton.widthAnchor.constraint(equalToConstant: 120),
-            confirmButton.centerXAnchor.constraint(equalTo: mainStackView.centerXAnchor)
+            confirmButton.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: -16.0)
         ])
     }
-    
+  // override var intrinsicContentSize {
+  /// ... |
     @objc private func saveChanges() {
         //		print(textField.text)
         print("Save")

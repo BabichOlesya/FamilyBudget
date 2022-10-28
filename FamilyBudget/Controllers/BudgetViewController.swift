@@ -38,7 +38,7 @@ class BudgetViewController: UIViewController {
 		cost.nameTotal = "Итого расходов"
 		
     income.amount = BudgetManager.shared.totalIncomes
-    cost.amount = BudgetManager.shared.totalCosts
+    cost.amount = BudgetManager.shared.totalExpenses
     balance.amount = BudgetManager.shared.balance
 		
 		view.addSubview(diagramImageView)
