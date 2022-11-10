@@ -31,11 +31,11 @@ class BudgetViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
-    title = "Бюджет"
+    title = "Budget"
     
-		balance.nameTotal = "Перерасход/остаток"
-		income.nameTotal = "Итого доходов"
-		cost.nameTotal = "Итого расходов"
+		balance.nameTotal = "Balance"
+		income.nameTotal = "Total income"
+		cost.nameTotal = "Total expenses"
 		
     income.amount = BudgetManager.shared.totalIncomes
     cost.amount = BudgetManager.shared.totalExpenses
@@ -72,7 +72,7 @@ class BudgetViewController: UIViewController {
     
     private lazy var status: UILabel = {
         let status = UILabel()
-        status.text = "Статус выполнения бюджета"
+        status.text = "Budget execution status"
         status.font = .systemFont(ofSize: 16, weight: .bold)
         status.textColor = .systemGray
         status.frame = CGRect(x: 0, y: 0, width: 50, height: 20)
@@ -84,7 +84,7 @@ class BudgetViewController: UIViewController {
     
     private lazy var monthButton: UIButton = {
         let monthButton = UIButton()
-        monthButton.setTitle("Месяц", for: .normal)
+        monthButton.setTitle("Month", for: .normal)
         monthButton.backgroundColor = .systemBlue
         monthButton.layer.shadowColor = UIColor.black.cgColor
         monthButton.layer.shadowOffset = CGSize(width: 2, height: 2)

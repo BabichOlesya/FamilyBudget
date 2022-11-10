@@ -18,7 +18,7 @@ class AddIncomeCostView: UIView {
     @IBOutlet private weak var labelSelectionType: UILabel!
     @IBOutlet private weak var textFieldSum: UITextField!
     @IBOutlet private weak var textFieldDate: UITextField!
-    @IBOutlet weak var textViewComment: UITextView!
+    @IBOutlet private weak var textViewComment: UITextView!
     
     let datePicker = UIDatePicker()
     

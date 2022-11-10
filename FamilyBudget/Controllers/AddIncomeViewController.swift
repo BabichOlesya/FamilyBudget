@@ -10,47 +10,97 @@ import UIKit
 class AddIncomeViewController: UIViewController {
     
     // MARK : Private API
-    private var addIncome = IncomeCostView()
+    private var addIncomeView = AddIncomeCostView()
 //    private var budgetManager = BudgetManager()
     var currentAccount = BankAccount(name: "Сбер", currency: .rub)
     
     private enum Constant {
-        static let lateralIndent: CGFloat = 10.0
-        static let upperIndentS: CGFloat = 10.0
-        static let upperIndentL: CGFloat = 30.0
-        static let upperIndentXL: CGFloat = 50.0
-        static let bottomIndentS: CGFloat = 10.0
-        static let bottomIndentL: CGFloat = 50.0
-        static let spacing: CGFloat = 30
-        static let buttonViewWidth: CGFloat = 180.0
-        static let buttonViewHeight: CGFloat = 50.0
+        static let lateralIndent: CGFloat = 20.0
+        static let bottomIndentL: CGFloat = 80.0
+        static let bottomHeight: CGFloat = 50
     }
+    
+    private var confirmButton: UIButton = {
+        let confirmButton = UIButton(type: .custom)
+        confirmButton.translatesAutoresizingMaskIntoConstraints = false
+        confirmButton.setTitle("Сохранить", for: .normal)
+        confirmButton.backgroundColor = .systemBlue
+        confirmButton.layer.shadowColor = UIColor.black.cgColor
+        confirmButton.layer.cornerRadius = 7
+        confirmButton.layer.shadowOpacity = 1
+        confirmButton.addTarget(AddCostViewController.self, action: #selector(saveChanges), for: .touchUpInside)
+        return confirmButton
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    private var mainStackView: UIStackView = {
+        let mainStackView = UIStackView()
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.distribution = .fill
+        mainStackView.axis = .vertical
+        mainStackView.spacing = 8.0
+        return mainStackView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Создать доход"
         
-        view.addSubview(addIncomeView)
+        addIncomeView.nameBankAccount = "Счет банка"
+        addIncomeView.nameTypeIncomeCost = "Статья дохода"
+        addIncomeView.nameLabelSum = "Сумма дохода"
+        addIncomeView.nameLabelDate = "Дата дохода"
+        addIncomeView.nameLabelComment = "Комментарий"
+        addIncomeView.selectionAccount = "Счета"
+        addIncomeView.selectionType = "Статьи"
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard) )
+        view.addGestureRecognizer(tapGesture)
+        
+        // view.addSubview(scrollView)
+        // scrollView.addSubview(mainStackView)
+        mainStackView.addArrangedSubview(addIncomeView)
+        mainStackView.addArrangedSubview(confirmButton)
+        view.addSubview(mainStackView)
         addConstraints()
     }
     
-    private lazy var addIncomeView: UIView = {
-        let addIncomeView = IncomeCostView()
-        addIncomeView.translatesAutoresizingMaskIntoConstraints = false
-        return addIncomeView
-    }()
+    @objc func hideKeyboard() {
+        addIncomeView.endEditing(true)
+    }
     
     private func addConstraints() {
         
         NSLayoutConstraint.activate([
             
-            addIncomeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.upperIndentXL),
-            addIncomeView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Constant.lateralIndent),
-            addIncomeView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.lateralIndent),
-//            addIncomeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.bottomIndentL)
-//            
+            //            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            //            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            //            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            //            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            //            addCostView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+            //            addCostView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+            //            addCostView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+            confirmButton.heightAnchor.constraint(equalToConstant: 40),
+            confirmButton.widthAnchor.constraint(equalToConstant: 120),
+            confirmButton.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: -16.0)
         ])
+    }
+    
+    @objc private func saveChanges() {
+        //        print(textField.text)
+        print("Save")
     }
     
 }
