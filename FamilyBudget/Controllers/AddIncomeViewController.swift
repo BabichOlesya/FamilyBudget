@@ -11,6 +11,7 @@ class AddIncomeViewController: UIViewController {
     
     // MARK : Private API
     private var addIncomeView = AddIncomeCostView()
+    
 //    private var budgetManager = BudgetManager()
     var currentAccount = BankAccount(name: "Сбер", currency: .rub)
     
@@ -52,25 +53,37 @@ class AddIncomeViewController: UIViewController {
         view.backgroundColor = .white
         title = "Создать доход"
         
-        addIncomeView.nameBankAccount = "Счет банка"
-        addIncomeView.nameTypeIncomeCost = "Статья дохода"
-        addIncomeView.nameLabelSum = "Сумма дохода"
-        addIncomeView.nameLabelDate = "Дата дохода"
-        addIncomeView.nameLabelComment = "Комментарий"
-        addIncomeView.selectionAccount = "Счета"
-        addIncomeView.selectionType = "Статьи"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard) )
         view.addGestureRecognizer(tapGesture)
         
         // view.addSubview(scrollView)
         // scrollView.addSubview(mainStackView)
-        mainStackView.addArrangedSubview(addIncomeView)
-        mainStackView.addArrangedSubview(confirmButton)
-        view.addSubview(mainStackView)
-        addConstraints()
+        //mainStackView.addArrangedSubview(addIncomeView)
+        //mainStackView.addArrangedSubview(confirmButton)
+      
     }
     
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    //addIncomeView.addSubview(view)
+    
+    addIncomeView.translatesAutoresizingMaskIntoConstraints = false
+    addIncomeView.clipsToBounds = true
+    addIncomeView.nameBankAccount = "Счет банка"
+    addIncomeView.nameTypeIncomeCost = "Статья дохода"
+    addIncomeView.nameLabelSum = "Сумма дохода"
+    addIncomeView.nameLabelDate = "Дата дохода"
+    addIncomeView.nameLabelComment = "Комментарий"
+    addIncomeView.selectionAccount = "Счета"
+    addIncomeView.selectionType = "Статьи"
+    
+    view.addSubview(addIncomeView)
+    view.addSubview(confirmButton)
+    
+    addConstraints()
+  }
+  
     @objc func hideKeyboard() {
         addIncomeView.endEditing(true)
     }
@@ -84,17 +97,21 @@ class AddIncomeViewController: UIViewController {
             //            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             //            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+          addIncomeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+          // addIncomeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+          addIncomeView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+          //addIncomeView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+          addIncomeView.widthAnchor.constraint(equalTo: view.widthAnchor),
+          addIncomeView.bottomAnchor.constraint(equalTo: confirmButton.topAnchor, constant: -16.0),
             
             //            addCostView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
             //            addCostView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
             //            addCostView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
-            confirmButton.heightAnchor.constraint(equalToConstant: 40),
-            confirmButton.widthAnchor.constraint(equalToConstant: 120),
-            confirmButton.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: -16.0)
+          confirmButton.topAnchor.constraint(equalTo: addIncomeView.bottomAnchor, constant: 16.0),
+          confirmButton.heightAnchor.constraint(equalToConstant: 60),
+          confirmButton.widthAnchor.constraint(equalToConstant: 200),
+          confirmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+          confirmButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -160.0)
         ])
     }
     

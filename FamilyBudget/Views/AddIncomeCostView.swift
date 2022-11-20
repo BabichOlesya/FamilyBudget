@@ -90,7 +90,7 @@ class AddIncomeCostView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initializeFromNib()
+        //initializeFromNib()
     }
     
     @objc func dateChange() {
