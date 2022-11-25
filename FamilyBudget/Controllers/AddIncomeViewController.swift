@@ -11,14 +11,16 @@ class AddIncomeViewController: UIViewController {
     
     // MARK : Private API
     private var addIncomeView = AddIncomeCostView()
-    
-//    private var budgetManager = BudgetManager()
     var currentAccount = BankAccount(name: "Сбер", currency: .rub)
     
     private enum Constant {
         static let lateralIndent: CGFloat = 20.0
         static let bottomIndentL: CGFloat = 80.0
-        static let bottomHeight: CGFloat = 50
+        static let bottomHeight: CGFloat = 50.00
+        static let buttonViewWidth: CGFloat = 180.0
+        static let buttonViewHeight: CGFloat = 50.0
+        static let upperIndentS: CGFloat = 10.0
+        static let upperIndentL: CGFloat = 30.0
     }
     
     private var confirmButton: UIButton = {
@@ -39,85 +41,92 @@ class AddIncomeViewController: UIViewController {
         return scrollView
     }()
     
-    private var mainStackView: UIStackView = {
-        let mainStackView = UIStackView()
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.distribution = .fill
-        mainStackView.axis = .vertical
-        mainStackView.spacing = 8.0
-        return mainStackView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "Создать доход"
-        
+        title = "Create income"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard) )
-        view.addGestureRecognizer(tapGesture)
+        scrollView.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        // view.addSubview(scrollView)
-        // scrollView.addSubview(mainStackView)
-        //mainStackView.addArrangedSubview(addIncomeView)
-        //mainStackView.addArrangedSubview(confirmButton)
-      
+
+        view.addSubview(scrollView)
+        scrollView.addSubview(addIncomeView)
+        scrollView.addSubview(confirmButton)
+//        scrollView.addSubview(datePicker)
+        
+        addConstraints()
+        setup()
     }
     
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    //addIncomeView.addSubview(view)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
-    addIncomeView.translatesAutoresizingMaskIntoConstraints = false
-    addIncomeView.clipsToBounds = true
-    addIncomeView.nameBankAccount = "Счет банка"
-    addIncomeView.nameTypeIncomeCost = "Статья дохода"
-    addIncomeView.nameLabelSum = "Сумма дохода"
-    addIncomeView.nameLabelDate = "Дата дохода"
-    addIncomeView.nameLabelComment = "Комментарий"
-    addIncomeView.selectionAccount = "Счета"
-    addIncomeView.selectionType = "Статьи"
+    func setup() {
+        addIncomeView.translatesAutoresizingMaskIntoConstraints = false
+        addIncomeView.clipsToBounds = true
+        addIncomeView.nameBankAccount = "Счет банка"
+        addIncomeView.nameTypeIncomeCost = "Статья дохода"
+        addIncomeView.nameLabelSum = "Сумма дохода"
+        addIncomeView.nameLabelDate = "Дата дохода"
+        addIncomeView.nameLabelComment = "Комментарий"
+        addIncomeView.selectionAccount = "Счета"
+        addIncomeView.selectionType = "Статьи"
+    }
     
-    view.addSubview(addIncomeView)
-    view.addSubview(confirmButton)
+    @objc func keyboardWasShown(notification: Notification) {
+        let info = notification.userInfo! as NSDictionary
+        let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+        
+        self.scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets }
     
-    addConstraints()
-  }
-  
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+    }
+    
     @objc func hideKeyboard() {
-        addIncomeView.endEditing(true)
+        self.scrollView.endEditing(true)
     }
+    
     
     private func addConstraints() {
         
         NSLayoutConstraint.activate([
             
-            //            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            //            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            //            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            //            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             
-          addIncomeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-          // addIncomeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-          addIncomeView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-          //addIncomeView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-          addIncomeView.widthAnchor.constraint(equalTo: view.widthAnchor),
-          addIncomeView.bottomAnchor.constraint(equalTo: confirmButton.topAnchor, constant: -16.0),
+            addIncomeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            addIncomeView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            addIncomeView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            addIncomeView.bottomAnchor.constraint(equalTo: confirmButton.topAnchor, constant: -Constant.upperIndentS),
+
+            confirmButton.topAnchor.constraint(equalTo: addIncomeView.bottomAnchor, constant: Constant.upperIndentS),
+            confirmButton.heightAnchor.constraint(equalToConstant: Constant.buttonViewHeight),
+            confirmButton.widthAnchor.constraint(equalToConstant: Constant.buttonViewWidth),
+            confirmButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            confirmButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.upperIndentL),
             
-            //            addCostView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
-            //            addCostView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
-            //            addCostView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
-          confirmButton.topAnchor.constraint(equalTo: addIncomeView.bottomAnchor, constant: 16.0),
-          confirmButton.heightAnchor.constraint(equalToConstant: 60),
-          confirmButton.widthAnchor.constraint(equalToConstant: 200),
-          confirmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-          confirmButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -160.0)
         ])
     }
     
     @objc private func saveChanges() {
-        //        print(textField.text)
         print("Save")
     }
     
 }
+

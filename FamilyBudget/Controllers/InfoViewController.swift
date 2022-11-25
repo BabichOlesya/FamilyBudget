@@ -32,6 +32,15 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Информация"
+//        
+//        var items = navigationItem.rightBarButtonItems
+//        if items == nil {
+//            items = [UIBarButtonItem]()
+//        }
+//        items! += [ editButtonItem ]
+//        navigationItem.rightBarButtonItems = items
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editIncome))
         
         incomeInfoView.nameLabelAccount = "Счет"
         incomeInfoView.nameLabelTypeIncomeCost = "Статья"
@@ -57,6 +66,10 @@ class InfoViewController: UIViewController {
         labelstackView.translatesAutoresizingMaskIntoConstraints = false
         return labelstackView
     }()
+    
+    @objc func editIncome() {
+        
+    }
     
     private func addConstraints() {
         

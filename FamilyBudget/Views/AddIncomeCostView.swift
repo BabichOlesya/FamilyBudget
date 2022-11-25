@@ -19,6 +19,7 @@ class AddIncomeCostView: UIView {
     @IBOutlet private weak var textFieldSum: UITextField!
     @IBOutlet private weak var textFieldDate: UITextField!
     @IBOutlet private weak var textViewComment: UITextView!
+    @IBOutlet private weak var picker: UIDatePicker!
     
     let datePicker = UIDatePicker()
     
@@ -64,33 +65,24 @@ class AddIncomeCostView: UIView {
         }
     }
     
-    public var textFieldSumAdd: String? {
-        didSet {
-            textFieldSum.text = textFieldSumAdd
-        }
-    }
-    
-    public var textFieldDateAdd: String? {
-        didSet {
-            textFieldDate.text = textFieldDateAdd
-        }
-    }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeFromNib()
+        
+        datePicker.isHidden = true
         
         textFieldDate.inputView = datePicker
         datePicker.datePickerMode = .date
         let localeID = Locale.preferredLanguages.first
         datePicker.locale = Locale(identifier: localeID!)
-        
+
         datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        //initializeFromNib()
+        initializeFromNib()
     }
     
     @objc func dateChange() {
