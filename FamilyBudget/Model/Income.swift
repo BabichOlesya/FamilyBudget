@@ -9,7 +9,7 @@ import UIKit
 
 public var incomeStorageKey = "incomeStorageKey"
 
-enum IncomeType: String, Codable {
+public enum IncomeType: String, Codable {
   case salary, social, rent, present, business, investments
 }
 

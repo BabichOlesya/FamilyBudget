@@ -7,20 +7,21 @@
 
 import UIKit
 
-class AddIncomeCostView: UIView {
+class AddIncomeCostView: UIView, UITextFieldDelegate {
 
     @IBOutlet private weak var labelBankAccount: UILabel!
     @IBOutlet private weak var labelTypeIncomeCost: UILabel!
     @IBOutlet private weak var labelSum: UILabel!
     @IBOutlet private weak var labelDate: UILabel!
     @IBOutlet private weak var labelComment: UILabel!
-    @IBOutlet private weak var labelSelectionAccount: UILabel!
-    @IBOutlet private weak var labelSelectionType: UILabel!
+    @IBOutlet private weak var selectAccountButton: UIButton!
+    @IBOutlet private weak var selectTypeButton: UIButton!
     @IBOutlet private weak var textFieldSum: UITextField!
     @IBOutlet private weak var textFieldDate: UITextField!
     @IBOutlet private weak var textViewComment: UITextView!
-    @IBOutlet private weak var picker: UIDatePicker!
-    
+    @IBOutlet private weak var saveButton: UIButton!
+ 
+    public weak var incomeDataDelegate: IncomeData?
     let datePicker = UIDatePicker()
     
     public var nameBankAccount: String? {
@@ -53,15 +54,15 @@ class AddIncomeCostView: UIView {
         }
     }
     
-    public var selectionAccount: String? {
+    public var selectedAccountTitle: String? {
         didSet {
-            labelSelectionAccount.text = selectionAccount
+          selectAccountButton.setTitle(selectedAccountTitle, for: .normal)
         }
     }
     
-    public var selectionType: String? {
+    public var selectedTypeTitle: String? {
         didSet {
-            labelSelectionType.text = selectionType
+          selectTypeButton.setTitle(selectedTypeTitle, for: .normal)
         }
     }
     
@@ -69,22 +70,24 @@ class AddIncomeCostView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeFromNib()
-        
-        datePicker.isHidden = true
-        
-        textFieldDate.inputView = datePicker
-        datePicker.datePickerMode = .date
-        let localeID = Locale.preferredLanguages.first
-        datePicker.locale = Locale(identifier: localeID!)
-
-        datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
+        textFieldDate.placeholder = Date().description
+        textFieldDate.delegate = self
+      
+//      datePicker.isHidden = true
+//
+//
+//        datePicker.datePickerMode = .date
+//        let localeID = Locale.preferredLanguages.first
+//        datePicker.locale = Locale(identifier: localeID!)
+//
+//        datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         initializeFromNib()
     }
-    
+  
     @objc func dateChange() {
         gatDateFromPiker()
     }
@@ -93,5 +96,19 @@ class AddIncomeCostView: UIView {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyy HH:mm"
         textFieldDate.text = formatter.string(from: datePicker.date)
+    }
+  
+    @IBAction func saveData() {
+      let account = BankAccount(name: "Sber", currency: .eur)
+      let amount = 10.0
+      let comment = textViewComment.text
+      incomeDataDelegate?.saveData(account: account, type: .business, amount: amount, date: Date(), comment: comment)
+    }
+  
+    //MARK: TextField Delegate
+  
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      saveData()
+      return true
     }
 }

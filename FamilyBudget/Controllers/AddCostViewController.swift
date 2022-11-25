@@ -57,8 +57,8 @@ class AddCostViewController: UIViewController {
         addCostView.nameLabelSum = "Сумма расхода"
         addCostView.nameLabelDate = "Дата расхода"
         addCostView.nameLabelComment = "Комментарий"
-        addCostView.selectionAccount = "Счета"
-        addCostView.selectionType = "Статьи"
+        addCostView.selectedAccountTitle = "Счета"
+        addCostView.selectedTypeTitle = "Статьи"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard) )
         view.addGestureRecognizer(tapGesture)
