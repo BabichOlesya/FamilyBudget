@@ -11,6 +11,8 @@ class AddIncomeViewController: UIViewController {
     
     // MARK : Private API
     private var addIncomeView = AddIncomeCostView()
+    private var contentView = UIView(frame: .zero)
+  
     var currentAccount = BankAccount(name: "Сбер", currency: .rub)
     
     private enum Constant {
@@ -56,9 +58,11 @@ class AddIncomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
 
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(addIncomeView)
+        contentView.addSubview(confirmButton)
+        scrollView.addSubview(contentView)
         view.addSubview(scrollView)
-        scrollView.addSubview(addIncomeView)
-        scrollView.addSubview(confirmButton)
 //        scrollView.addSubview(datePicker)
         
         addConstraints()
@@ -84,16 +88,17 @@ class AddIncomeViewController: UIViewController {
     }
     
     @objc func keyboardWasShown(notification: Notification) {
-        let info = notification.userInfo! as NSDictionary
-        let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
-        
-        self.scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets }
+//        let info = notification.userInfo! as NSDictionary
+//        let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
+//        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+//
+//        self.scrollView.contentInset = contentInsets
+//        scrollView.scrollIndicatorInsets = contentInsets
+    }
     
     @objc func keyboardWillBeHidden(notification: Notification) {
-        let contentInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
+//        let contentInsets = UIEdgeInsets.zero
+//        scrollView.contentInset = contentInsets
     }
     
     @objc func hideKeyboard() {
@@ -104,23 +109,28 @@ class AddIncomeViewController: UIViewController {
     private func addConstraints() {
         
         NSLayoutConstraint.activate([
-            
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
-            addIncomeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            addIncomeView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            addIncomeView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            addIncomeView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            addIncomeView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            addIncomeView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            addIncomeView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             addIncomeView.bottomAnchor.constraint(equalTo: confirmButton.topAnchor, constant: -Constant.upperIndentS),
 
             confirmButton.topAnchor.constraint(equalTo: addIncomeView.bottomAnchor, constant: Constant.upperIndentS),
             confirmButton.heightAnchor.constraint(equalToConstant: Constant.buttonViewHeight),
             confirmButton.widthAnchor.constraint(equalToConstant: Constant.buttonViewWidth),
-            confirmButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            confirmButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.upperIndentL),
+            confirmButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            confirmButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
     
