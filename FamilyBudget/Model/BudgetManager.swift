@@ -21,10 +21,10 @@ public class BudgetManager {
     
     static var shared = BudgetManager()
   
-    private var incomes = [Income]()
+    private(set) var incomes = [Income]()
     private var expenses = [Expense]()
   
-    func createIncome(account: BankAccount, type: IncomeType, amount: Double, date: Date) {
+    func createIncome(account: BankAccount, type: IncomeType?, amount: Double, date: Date) {
         let newIncome = Income(account: account, type: type, amount: amount, date: date)
         saveIncome(newIncome)
     }
@@ -33,7 +33,7 @@ public class BudgetManager {
         let newExpense = Expense(account: account, type: type, amount: amount, date: date)
         saveExpense(newExpense)
     }
-
+  
     var totalIncomes: Double {
       incomes.map{ $0.amount }.reduce(0, +)
     }
