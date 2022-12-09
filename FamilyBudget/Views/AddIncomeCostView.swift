@@ -17,12 +17,11 @@ class AddIncomeCostView: UIView, UITextFieldDelegate {
     @IBOutlet private weak var selectAccountButton: UIButton!
     @IBOutlet private weak var selectTypeButton: UIButton!
     @IBOutlet private weak var textFieldSum: UITextField!
-    @IBOutlet private weak var textFieldDate: UITextField!
+    @IBOutlet weak var textFieldDate: UITextField!
     @IBOutlet private weak var textViewComment: UITextView!
     @IBOutlet private weak var saveButton: UIButton!
  
     public weak var incomeDataDelegate: IncomeData?
-    let datePicker = UIDatePicker()
     
     public var nameBankAccount: String? {
         didSet {
@@ -73,29 +72,11 @@ class AddIncomeCostView: UIView, UITextFieldDelegate {
         textFieldDate.placeholder = Date().description
         textFieldDate.delegate = self
       
-//      datePicker.isHidden = true
-//
-//
-//        datePicker.datePickerMode = .date
-//        let localeID = Locale.preferredLanguages.first
-//        datePicker.locale = Locale(identifier: localeID!)
-//
-//        datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         initializeFromNib()
-    }
-  
-    @objc func dateChange() {
-        gatDateFromPiker()
-    }
-    
-    func gatDateFromPiker() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyy HH:mm"
-        textFieldDate.text = formatter.string(from: datePicker.date)
     }
   
     @IBAction func saveData() {

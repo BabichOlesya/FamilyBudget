@@ -114,7 +114,6 @@ extension AddCostViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let text = textField.text
-        print(text)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

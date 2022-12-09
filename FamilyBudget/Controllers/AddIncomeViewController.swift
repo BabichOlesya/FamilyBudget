@@ -63,6 +63,8 @@ class AddIncomeViewController: UIViewController, IncomeData {
         spinner.hidesWhenStopped = false
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(tapGesture)
+        
+        addIncomeView.textFieldDate.setInputViewDatePicker(target: self, selector: #selector(tapDone))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +99,16 @@ class AddIncomeViewController: UIViewController, IncomeData {
         self.scrollView.endEditing(true)
     }
     
+    @objc func tapDone() {
+           if let datePicker = addIncomeView.textFieldDate.inputView as? UIDatePicker {
+               let dateformatter = DateFormatter()
+               dateformatter.dateFormat = "dd-MM-yyyy HH:mm"
+//               dateformatter.dateStyle = .medium
+               addIncomeView.textFieldDate.text = dateformatter.string(from: datePicker.date)
+           }
+        addIncomeView.textFieldDate.resignFirstResponder()
+       }
+       
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

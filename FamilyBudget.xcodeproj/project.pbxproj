@@ -14,6 +14,7 @@
 		C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */; };
 		C6603B94288F572400192518 /* TotalsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6603B93288F572400192518 /* TotalsView.xib */; };
 		C6603B962891DC7B00192518 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6603B952891DC7B00192518 /* TotalsView.swift */; };
+		C67F21FF29355CDC006B6A69 /* TextField+Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67F21FE29355CDC006B6A69 /* TextField+Picker.swift */; };
 		C69916A528C00950007BF2AD /* AddIncomeCostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69916A428C00950007BF2AD /* AddIncomeCostView.xib */; };
 		C69916A728C1582E007BF2AD /* AddIncomeCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69916A628C1582E007BF2AD /* AddIncomeCostView.swift */; };
 		C69916A928EB8DA7007BF2AD /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69916A828EB8DA7007BF2AD /* AddIncomeViewController.swift */; };
@@ -49,6 +50,7 @@
 		C65F89C4286B9D2300E9EC9E /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		C6603B93288F572400192518 /* TotalsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalsView.xib; sourceTree = "<group>"; };
 		C6603B952891DC7B00192518 /* TotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
+		C67F21FE29355CDC006B6A69 /* TextField+Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Picker.swift"; sourceTree = "<group>"; };
 		C69916A428C00950007BF2AD /* AddIncomeCostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddIncomeCostView.xib; sourceTree = "<group>"; };
 		C69916A628C1582E007BF2AD /* AddIncomeCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeCostView.swift; sourceTree = "<group>"; };
 		C69916A828EB8DA7007BF2AD /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				E6DE0BD628A673E0006E06C9 /* UIView+LoadNib.swift */,
+				C67F21FE29355CDC006B6A69 /* TextField+Picker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				E6DE0BD728A673E0006E06C9 /* UIView+LoadNib.swift in Sources */,
 				C6BD18EE28763BB200E8F052 /* User.swift in Sources */,
 				C6A0640B28AF071000353AD2 /* InfoViewController.swift in Sources */,
+				C67F21FF29355CDC006B6A69 /* TextField+Picker.swift in Sources */,
 				D4FB1213290C0C1D00361761 /* IncomeManager.swift in Sources */,
 				C69916A728C1582E007BF2AD /* AddIncomeCostView.swift in Sources */,
 				D4F10A36290C53920073584A /* IncomesViewController.swift in Sources */,

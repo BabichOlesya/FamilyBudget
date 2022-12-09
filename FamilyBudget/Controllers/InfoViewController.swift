@@ -53,8 +53,8 @@ class InfoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        incomeInfoView.account = currentIncome?.account
-        incomeInfoView.incomeType = currentIncome?.type
+        incomeInfoView.selectedAccountTitle = currentIncome?.account.name
+        incomeInfoView.selectedTypeTitle = currentIncome?.type.rawValue.description
         incomeInfoView.sum = currentIncome?.amount
     }
     

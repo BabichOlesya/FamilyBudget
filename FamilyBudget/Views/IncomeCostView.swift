@@ -13,8 +13,8 @@ class IncomeCostView: UIView {
     @IBOutlet private weak var labelIncomeCostType: UILabel!
     @IBOutlet private weak var labelSum: UILabel!
     
-    @IBOutlet private weak var labelSelectionAccount: UILabel!
-    @IBOutlet private weak var labelSelectionType: UILabel!
+    @IBOutlet private weak var selectAccountButton: UIButton!
+    @IBOutlet private weak var selectTypeButton: UIButton!
     @IBOutlet private weak var labelSumValue: UILabel!
     
     public var nameLabelAccount: String? {
@@ -36,15 +36,15 @@ class IncomeCostView: UIView {
     }
     
     
-    public var account: BankAccount? {
+    public var selectedAccountTitle: String? {
         didSet {
-            labelSelectionAccount.text = account?.name
+          selectAccountButton.setTitle(selectedAccountTitle, for: .normal)
         }
     }
-
-    public var incomeType: IncomeType? {
+    
+    public var selectedTypeTitle: String? {
         didSet {
-            labelSelectionType.text = incomeType?.rawValue
+          selectTypeButton.setTitle(selectedTypeTitle, for: .normal)
         }
     }
     
@@ -64,5 +64,6 @@ class IncomeCostView: UIView {
         super.init(coder: coder)
         initializeFromNib()
     }
+    
 
 }
