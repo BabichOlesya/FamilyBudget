@@ -16,8 +16,8 @@ class AddIncomeCostView: UIView, UITextFieldDelegate {
     @IBOutlet private weak var labelComment: UILabel!
     @IBOutlet private weak var selectAccountButton: UIButton!
     @IBOutlet private weak var selectTypeButton: UIButton!
-    @IBOutlet private weak var textFieldSum: UITextField!
-    @IBOutlet weak var textFieldDate: UITextField!
+    @IBOutlet private(set) weak var amountTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet private weak var textViewComment: UITextView!
     @IBOutlet private weak var saveButton: UIButton!
  
@@ -69,8 +69,8 @@ class AddIncomeCostView: UIView, UITextFieldDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeFromNib()
-        textFieldDate.placeholder = Date().description
-        textFieldDate.delegate = self
+        dateTextField.placeholder = Date().description
+        dateTextField.delegate = self
       
     }
     
@@ -81,7 +81,7 @@ class AddIncomeCostView: UIView, UITextFieldDelegate {
   
     @IBAction func saveData() {
       let account = BankAccount(name: "Sber", currency: .eur)
-      let amount = 10.0
+      let amount = Double(amountTextField.text ?? "0") ?? 0
       let comment = textViewComment.text
       incomeDataDelegate?.saveData(account: account, type: .business, amount: amount, date: Date(), comment: comment)
     }

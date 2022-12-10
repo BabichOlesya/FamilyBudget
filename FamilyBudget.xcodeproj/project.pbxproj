@@ -35,6 +35,7 @@
 		D4B5B659293A40770067C4AB /* FamilyBudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5B658293A40770067C4AB /* FamilyBudgetTests.swift */; };
 		D4B5B660293A410C0067C4AB /* BudgetManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5B65F293A410C0067C4AB /* BudgetManagerTests.swift */; };
 		D4B5B662293A4C580067C4AB /* TestableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5B661293A4C580067C4AB /* TestableClass.swift */; };
+		D4B5B6692944ACFA0067C4AB /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5B6682944ACFA0067C4AB /* AlertType.swift */; };
 		D4C6CF8228C39EC500A1659F /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C6CF8128C39EC500A1659F /* InfoTableViewCell.xib */; };
 		D4C6CF8428C39ED300A1659F /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C6CF8328C39ED300A1659F /* InfoTableViewCell.swift */; };
 		D4F10A36290C53920073584A /* IncomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F10A35290C53920073584A /* IncomesViewController.swift */; };
@@ -86,6 +87,7 @@
 		D4B5B658293A40770067C4AB /* FamilyBudgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBudgetTests.swift; sourceTree = "<group>"; };
 		D4B5B65F293A410C0067C4AB /* BudgetManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManagerTests.swift; sourceTree = "<group>"; };
 		D4B5B661293A4C580067C4AB /* TestableClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableClass.swift; sourceTree = "<group>"; };
+		D4B5B6682944ACFA0067C4AB /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		D4C6CF8128C39EC500A1659F /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
 		D4C6CF8328C39ED300A1659F /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		D4F10A35290C53920073584A /* IncomesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomesViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				C6DC1EDF2888A59200027BDD /* Views */,
 				C6DC1EE02888A5B500027BDD /* Controllers */,
 				C6BD18E82872341800E8F052 /* Model */,
+				D4B5B66A2944AD000067C4AB /* Helpers */,
 				E6DE0BD828A673E4006E06C9 /* Extensions */,
 				C6DC1EE12888A5CB00027BDD /* Main */,
 				C6DC1EE22888A68F00027BDD /* Resources */,
@@ -218,6 +221,14 @@
 				C6BCFDEB2943FF99004FDA75 /* MiniCalculatorTests.swift */,
 			);
 			path = FamilyBudgetTests;
+			sourceTree = "<group>";
+		};
+		D4B5B66A2944AD000067C4AB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D4B5B6682944ACFA0067C4AB /* AlertType.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E6DE0BD828A673E4006E06C9 /* Extensions */ = {
@@ -358,6 +369,7 @@
 				C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */,
 				D4C6CF8428C39ED300A1659F /* InfoTableViewCell.swift in Sources */,
 				D4FC5A2328B935A000F48650 /* BankAccount.swift in Sources */,
+				D4B5B6692944ACFA0067C4AB /* AlertType.swift in Sources */,
 				C65F89C5286B9D2300E9EC9E /* BudgetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

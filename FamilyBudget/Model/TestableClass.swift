@@ -12,7 +12,7 @@ class MiniCalculator {
   var initialValue: Double = 0.0
   var firstNumber: Double = 0.0
   var secondNumber: Double = 0.0
-  private var result: Double?
+  private(set) var result: Double?
   
   var sum: Double {
     firstNumber + secondNumber

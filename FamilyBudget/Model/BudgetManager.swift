@@ -24,9 +24,10 @@ public class BudgetManager {
     private(set) var incomes = [Income]()
     private var expenses = [Expense]()
   
-    func createIncome(account: BankAccount, type: IncomeType?, amount: Double, date: Date) {
+  
+  func createIncome(account: BankAccount, type: IncomeType?, amount: Double, date: Date, completionHandler: ((_ success: Bool) -> Void) ) {
         let newIncome = Income(account: account, type: type ?? .business, amount: amount, date: date)
-        saveIncome(newIncome)
+        saveIncome(newIncome, completionHandler: completionHandler)
     }
     
     func createExpense(account: BankAccount, type: ExpenseType, amount: Double, date: Date) {
@@ -49,12 +50,14 @@ public class BudgetManager {
 
 /** Сохраняем и получаем данные с помощью классов JSONEncoder / JSONDecoder **/
 extension BudgetManager {
-    func saveIncome(_ income: Income) {
+    func saveIncome(_ income: Income, completionHandler: ((_ success: Bool) -> Void)) {
         incomes.append(income)
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(incomes) {
-            UserDefaults.standard.set(encoded, forKey: incomeStorageKey)
+          UserDefaults.standard.set(encoded, forKey: incomeStorageKey)
+          completionHandler(true)
         }
+        completionHandler(false)
     }
     
     func fetchIncomes() -> [Income]? {

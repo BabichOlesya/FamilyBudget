@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddIncomeCostView" customModule="FamilyBudget" customModuleProvider="target">
             <connections>
+                <outlet property="amountTextField" destination="l35-k8-AI4" id="EXc-Mm-4WO"/>
+                <outlet property="dateTextField" destination="4NA-od-Q3H" id="ow0-SW-Nxh"/>
                 <outlet property="labelBankAccount" destination="dYc-UU-sGO" id="CY1-72-uQ0"/>
                 <outlet property="labelComment" destination="RV2-Ap-qP0" id="2sh-c6-HQN"/>
                 <outlet property="labelDate" destination="FYy-Xj-7Lr" id="u4h-uA-co6"/>
@@ -19,8 +21,6 @@
                 <outlet property="saveButton" destination="6Yz-vt-F1k" id="IZ5-Li-Dtm"/>
                 <outlet property="selectAccountButton" destination="mdc-Yb-IZn" id="RtV-Ex-xbs"/>
                 <outlet property="selectTypeButton" destination="u91-QJ-Az0" id="L8I-UE-q3j"/>
-                <outlet property="textFieldDate" destination="4NA-od-Q3H" id="ow0-SW-Nxh"/>
-                <outlet property="textFieldSum" destination="l35-k8-AI4" id="EXc-Mm-4WO"/>
                 <outlet property="textViewComment" destination="nOR-us-tOb" id="WSA-V2-0rB"/>
             </connections>
         </placeholder>

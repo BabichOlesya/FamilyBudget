@@ -21,12 +21,16 @@ class IncomesViewController: UITableViewController {
       let nib = UINib(nibName:"InfoTableViewCell", bundle: nil)
       tableView.register(nib, forCellReuseIdentifier: InfoTableViewCell.identifier)
       
-      BudgetManager.shared.createIncome(account: currentAccount, type: .salary, amount: 100, date: Date())
-      BudgetManager.shared.createIncome(account: currentAccount, type: .investments, amount: 2000, date: Date())
+//      BudgetManager.shared.createIncome(account: currentAccount, type: .salary, amount: 100, date: Date())
+//      BudgetManager.shared.createIncome(account: currentAccount, type: .investments, amount: 2000, date: Date())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
       incomes = BudgetManager.shared.fetchIncomes() ?? []
       tableView.reloadData()
     }
-    
+  
     @objc func addIncome() {
       let viewController = AddIncomeViewController()
       navigationController?.pushViewController(viewController, animated: true)

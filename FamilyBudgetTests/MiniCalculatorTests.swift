@@ -23,13 +23,13 @@ class MiniCalculatorTests: XCTestCase {
         sut = nil
     }
     
-    func testValueClass() {
-        XCTAssertEqual(sut.initialValue, sut.firstNumber)
-        XCTAssertEqual(sut.initialValue, sut.secondNumber)
-        XCTAssertEqual(sut.secondNumber, sut.firstNumber)
+    func testDefaultValues() {
+        XCTAssertEqual(sut.initialValue, 0)
+        XCTAssertEqual(sut.firstNumber, 0)
+        XCTAssertEqual(sut.secondNumber, 0)
     }
     
-    func testSumFirstNumber() {
+    func testSumWithDefaultSecondNumber() {
         sut.firstNumber = 3.0
         XCTAssertEqual(sut.sum, 3.0)
     }
@@ -51,6 +51,7 @@ class MiniCalculatorTests: XCTestCase {
     
     func testDifferenceFunctionFirstNumber() {
         sut.firstNumber = 3.0
+        sut.secondNumber = 5.0
         XCTAssertEqual(sut.difficultFunction, 9.0)
     }
     

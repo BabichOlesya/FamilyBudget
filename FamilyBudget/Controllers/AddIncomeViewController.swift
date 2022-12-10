@@ -64,7 +64,7 @@ class AddIncomeViewController: UIViewController, IncomeData {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(tapGesture)
         
-        addIncomeView.textFieldDate.setInputViewDatePicker(target: self, selector: #selector(tapDone))
+        addIncomeView.dateTextField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,13 +100,13 @@ class AddIncomeViewController: UIViewController, IncomeData {
     }
     
     @objc func tapDone() {
-           if let datePicker = addIncomeView.textFieldDate.inputView as? UIDatePicker {
+           if let datePicker = addIncomeView.dateTextField.inputView as? UIDatePicker {
                let dateformatter = DateFormatter()
                dateformatter.dateFormat = "dd-MM-yyyy HH:mm"
 //               dateformatter.dateStyle = .medium
-               addIncomeView.textFieldDate.text = dateformatter.string(from: datePicker.date)
+               addIncomeView.dateTextField.text = dateformatter.string(from: datePicker.date)
            }
-        addIncomeView.textFieldDate.resignFirstResponder()
+        addIncomeView.dateTextField.resignFirstResponder()
        }
        
     
@@ -140,9 +140,27 @@ class AddIncomeViewController: UIViewController, IncomeData {
     func saveData(account: BankAccount, type: IncomeType, amount: Double, date: Date, comment: String?) {
       // CHECK DATA
       // SHOW PROGRES - UIActivityIndicatorView
+      guard amount > 0 else {
+        showAlert(type: .zeroAmount)
+        return
+      }
       spinner.startAnimating()
-      BudgetManager.shared.createIncome(account: account, type: type, amount: amount, date: date)
-      spinner.stopAnimating()
+      BudgetManager.shared.createIncome(account: account, type: type, amount: amount, date: date) { success in
+        spinner.stopAnimating()
+        if success {
+          showAlert(type: .success)
+        } else {
+          showAlert(type: .error)
+        }
+      }
+    }
+  
+    func showAlert(type: AlertType) {
+      let alert = UIAlertController(title: type.title, message: type.message, preferredStyle: .alert)
+      let action = UIAlertAction(title: "Ok", style: .default) { [weak self] action in
+        self?.addIncomeView.amountTextField.becomeFirstResponder()
+      }
+      alert.addAction(action)
+      present(alert, animated: true, completion: nil)
     }
 }
-
