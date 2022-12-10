@@ -22,6 +22,7 @@
 		C6A0640928AEE86800353AD2 /* IncomeCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0640828AEE86800353AD2 /* IncomeCostView.swift */; };
 		C6A0640B28AF071000353AD2 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0640A28AF071000353AD2 /* InfoViewController.swift */; };
 		C6A0640D28AF077D00353AD2 /* AddCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0640C28AF077D00353AD2 /* AddCostViewController.swift */; };
+		C6BCFDEC2943FF99004FDA75 /* MiniCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BCFDEB2943FF99004FDA75 /* MiniCalculatorTests.swift */; };
 		C6BD18EA2872345E00E8F052 /* BudgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18E92872345E00E8F052 /* BudgetManager.swift */; };
 		C6BD18EE28763BB200E8F052 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18ED28763BB200E8F052 /* User.swift */; };
 		C6BD18F028763E2200E8F052 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD18EF28763E2200E8F052 /* Utilities.swift */; };
@@ -71,6 +72,7 @@
 		C6A0640828AEE86800353AD2 /* IncomeCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCostView.swift; sourceTree = "<group>"; };
 		C6A0640A28AF071000353AD2 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C6A0640C28AF077D00353AD2 /* AddCostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCostViewController.swift; sourceTree = "<group>"; };
+		C6BCFDEB2943FF99004FDA75 /* MiniCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCalculatorTests.swift; sourceTree = "<group>"; };
 		C6BD18E92872345E00E8F052 /* BudgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetManager.swift; sourceTree = "<group>"; };
 		C6BD18ED28763BB200E8F052 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6BD18EF28763E2200E8F052 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				D4B5B658293A40770067C4AB /* FamilyBudgetTests.swift */,
 				D4B5B65F293A410C0067C4AB /* BudgetManagerTests.swift */,
+				C6BCFDEB2943FF99004FDA75 /* MiniCalculatorTests.swift */,
 			);
 			path = FamilyBudgetTests;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BCFDEC2943FF99004FDA75 /* MiniCalculatorTests.swift in Sources */,
 				D4B5B660293A410C0067C4AB /* BudgetManagerTests.swift in Sources */,
 				D4B5B659293A40770067C4AB /* FamilyBudgetTests.swift in Sources */,
 			);

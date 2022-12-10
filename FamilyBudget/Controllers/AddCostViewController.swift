@@ -112,15 +112,15 @@ extension AddCostViewController: UITextFieldDelegate {
         print("Start")
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        let text = textField.text
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let text = textField.text
-        return true
-    }
-    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        let text = textField.text
+//    }
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        let text = textField.text
+//        return true
+//    }
+//
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let array = ["a", "b", "c"]
         return array.contains(string)

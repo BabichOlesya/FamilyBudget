@@ -25,7 +25,7 @@ public class BudgetManager {
     private var expenses = [Expense]()
   
     func createIncome(account: BankAccount, type: IncomeType?, amount: Double, date: Date) {
-        let newIncome = Income(account: account, type: type, amount: amount, date: date)
+        let newIncome = Income(account: account, type: type ?? .business, amount: amount, date: date)
         saveIncome(newIncome)
     }
     

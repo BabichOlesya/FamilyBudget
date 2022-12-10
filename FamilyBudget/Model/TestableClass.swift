@@ -30,3 +30,12 @@ class MiniCalculator {
     result = sum * multiplier
   }
 }
+
+extension MiniCalculator {
+    
+    var Tresult: Double? {
+        get {
+            return self.result
+        }
+    }
+}

@@ -27,10 +27,10 @@ class BudgetManagerTests: XCTestCase {
       //XCTAssertEqual(sut.doubleInt, 10)
     }
 
-    func testDoubleInt() {
-      sut.someInt = 6
-      XCTAssertEqual(sut.doubleInt, 12)
-    }
+//    func testDoubleInt() {
+//      sut.someInt = 6
+//      XCTAssertEqual(sut.doubleInt, 12)
+//    }
   
   func testCreateIncome() {
     sut.createIncome(account: bankAccount, type: .business, amount: 10.0, date: Date())
